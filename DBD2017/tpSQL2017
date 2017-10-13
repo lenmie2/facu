@@ -1,0 +1,6 @@
+5
+DELETE FROM Empleado 
+WHERE nroEmp = 6
+
+oooo
+6

@@ -1,0 +1,45 @@
+1
+SELECT socio.dni,socio.apellido,socio.nombre,socio.fecha_ingreso
+FROM socio 
+
+2
+SELECT socio.dni,socio.apellido,socio.nombre,socio.fecha_nacimiento
+FROM socio
+WHERE socio.fecha_ingreso > '10-01-2017' AND socio.apellido = 'LOPEZ'
+
+3
+SELECT libro.isbn,libro.titulo,libro.descripcion
+FROM libro INNER JOIN genero ON libro.cod_genero = genero.cod_genero
+WHERE genero.nombre = 'Drama'
+
+4
+SELECT libro.isbn,libro.titulo,libro.descripcion
+FROM libro INNER JOIN copia ON libro.isbn = copia.isbn
+WHERE copia.estado = 'Regular'
+
+5
+SELECT socio.dni,socio.apellido,socio.nombre,socio.fecha_nacimiento
+FROM socio	INNER JOIN prestamo ON socio.cod_socio = prestamo.cod_socio
+		INNER JOIN libro ON prestamo.isbn = libro.isbn
+		INNER JOIN genero ON libro.cod_genero = genero.cod_genero
+WHERE genero.nombre = 'Novela' AND
+	 NOT EXIST (	SELECT socio.dni,socio.apellido,socio.nombre,socio.fecha_nacimiento
+			FROM socio	INNER JOIN prestamo ON socio.cod_socio = prestamo.cod_socio
+			INNER JOIN libro ON prestamo.isbn = libro.isbn
+			INNER JOIN genero ON libro.cod_genero = genero.cod_genero
+			WHERE genero.nombre <> 'Novela')
+
+--alternativamente--
+
+SELECT socio.dni,socio.apellido,socio.nombre,socio.fecha_nacimiento
+FROM socio	INNER JOIN prestamo ON socio.cod_socio = prestamo.cod_socio
+		INNER JOIN libro ON prestamo.isbn = libro.isbn
+		INNER JOIN genero ON libro.cod_genero = genero.cod_genero
+WHERE genero.nombre = ALL
+	(SELECT genero.nombre
+		FROM socio INNER JOIN prestamo ON socio.cod_socio = prestamo.cod_socio
+		INNER JOIN libro ON prestamo.isbn = libro.isbn
+		INNER JOIN genero ON libro.cod_genero = genero.cod_genero
+		WHERE genero.nombre = 'Novela')						
+	
+
