@@ -1,6 +1,30 @@
 5
-DELETE FROM Empleado 
-WHERE nroEmp = 6
-
-oooo
+DELETE FROM reparacion
+WHERE nroEmp = 6;
+DELETE FROM empleado
+WHERE nroEmp = 6;
 6
+SELECT e.dni, e.apellido, e.nombre, e.fechaNac
+FROM empleado e INNER JOIN reparacion r ON (r.nroEmp = e.nroEmp)
+WHERE r.fecha BETWEEN '2017-01-01' AND '2017-12-31'
+7
+SELECT e.dni, e.apellido, e.nombre, COUNT(e.nroEmp)
+FROM empleado e INNER JOIN reparacion r ON e.nroEmp = r.nroEmp
+GROUP BY e.nroEmp
+8
+SELECT t.nombreT, t.direccion, t.telefono
+FROM tallerdbicicleta t
+WHERE t.nombreT LIKE '%taller%'
+ORDER BY t.nombreT, t.direccion DESC
+9
+SELECT c.nombre, c.apellido, c.dni
+FROM cliente c INNER JOIN reparacion r ON c.nroCte = r.nroCte
+GROUP BY c.nroCte
+HAVING COUNT(c.nroCte) > 5
+10
+SELECT t.nombreT, t.direccion, t.telefono
+FROM tallerdbicicleta t INNER JOIN empleado e ON  t.nroTaller = e.nroTaller
+			INNER JOIN reparacion r ON  e.nroEmp = r.nroEmp
+WHERE r.fecha BETWEEN '2017-01-01' AND '2017-01-31' AND r.fecha NOT BETWEEN '2017-02-01' AND '2017-02-28'
+GROUP BY t.nroTaller
+
