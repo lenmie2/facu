@@ -41,5 +41,8 @@ WHERE genero.nombre = ALL
 		INNER JOIN libro ON prestamo.isbn = libro.isbn
 		INNER JOIN genero ON libro.cod_genero = genero.cod_genero
 		WHERE genero.nombre = 'Novela')						
-	
+MALLLLLLLLLLLLLLLLLL
+
+6
+SELECT t.nombre, g.O	
 
