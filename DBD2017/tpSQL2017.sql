@@ -32,7 +32,7 @@ DELETE FROM Empleado
 WHERE nroEmp = 6 // baja del empleado nro6
 
 /* Ej 6 */
-SELECT E.dni, E.apellido, E.nombre, E.fechaNac
+SELECT DISTINCT E.dni, E.apellido, E.nombre, E.fechaNac
 FROM Empleado E INNER JOIN Reparacion R ON E.nroEmp = R.nroEmp
 WHERE R.fecha BETWEEN 2017-01-01 AND 2017-12-31
 
