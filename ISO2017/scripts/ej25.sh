@@ -1,12 +1,12 @@
 #!/bin/bash
+#REVISAR
 #Realice un script que agregue en un arreglo todos los nombres de los usuarios del sistema
 #pertenecientes al grupo “users”. Adicionalmente el script puede recibir como parametro:
 #“-b n”: Retorna el elemento de la posición n del arreglo si el mismo existe. Caso
 #contrario, un mensaje de error.
 #“-l”: Devuelve la longitud del arreglo
 #“-i”: Imprime todos los elementos del arreglo en pantalla
-
-usuarios=$(cut -d: -f1,4 /etc/passwd | grep $(getent group users | cut -d: -f3) | cut -d: -f1)
+usuarios=$(cut -d: -f1,4 /etc/passwd | grep $(getent group users | cut -d: -f3) | cut -d: -f1)	
 arr=()
 for each in ${usuarios[*]}
 do
@@ -15,7 +15,7 @@ done
 
 case $1 in
 	"-b")
-	if [ $# = 2 ]
+	if [ $# -eq 2 ]
 	then
 	  	if [ $2 -lt ${#arr[*]} ] 
     		then
@@ -29,10 +29,10 @@ case $1 in
 	fi
 	;;
 	"-l")
-		echo "La cantidad de usuarios es "${#arr[*]}
+		echo "La cantidad de usuarios es ${#arr[*]}"
 	;;
 	"-i")
-		echo "Usuarios: "${arr[*]}
+		echo "Usuarios: ${arr[*]}"
   	;;
 
 esac

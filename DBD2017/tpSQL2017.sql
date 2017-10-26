@@ -36,9 +36,9 @@ SELECT DISTINCT E.dni, E.apellido, E.nombre, E.fechaNac
 FROM Empleado E INNER JOIN Reparacion R ON E.nroEmp = R.nroEmp
 WHERE R.fecha BETWEEN 2017-01-01 AND 2017-12-31
 
-/* Ej 7 */
+/* Ej 7  REVISARRR 	*/
 SELECT E.dni, E.apellido, E.nombre, COUNT(*)
-FROM Empleado E INNER JOIN Reparacion R ON E.nroEmp = R.nroEmp
+FROM Empleado E LEFT JOIN Reparacion R ON E.nroEmp = R.nroEmp
 GROUP BY E.nroEmp, E.dni, E.apellido, E.nombre
 
 /* Ej 8 */

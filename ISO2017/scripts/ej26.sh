@@ -7,30 +7,29 @@
 #de objeto es (archivo o directorio). Además, deberá informar la cantidad de archivos o
 #directorios inexistentes en el sistema.
 
-if [ $# > 1 ]
+if [ $# -ge 1 ]
 then
 	noexist=0
-	arreglo=()
-	for each in $*
-	do
-		arreglo=( ${arreglo[*]} $each )
-	done
+	arreglo=($*)
+	count=0
 
-	for (( each=0;each<${#arreglo[*]};each++ ))
+	for each in ${arreglo[*]}
 	do
-		if [ $(expr $each % 2) <> 0 ]
+		let count++
+		if [ $(expr $count % 2) -ne 0 ]
 		then
-			if [ -d ${arreglo[$each]} ]
+			if [ -d $each ]
 			then
-				echo "${arreglo[$each]} es un directorio"
-			elif [ -f ${arreglo[$each]} ]
+				echo "$each es un directorio"
+			elif [ -f $each ]
 			then
-				echo "${arreglo[$each]} es un archivo regular"
+				echo "$each es un archivo regular"
 			else
 				let noexist++
 			fi
 		fi
 	done
+	echo "cantidad de direcciones que no existen es $noexist"
 
 else
 	echo "error, cantidad de parametros incorrecta"
