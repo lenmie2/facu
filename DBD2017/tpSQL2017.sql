@@ -37,7 +37,7 @@ FROM Empleado E INNER JOIN Reparacion R ON E.nroEmp = R.nroEmp
 WHERE R.fecha BETWEEN 2017-01-01 AND 2017-12-31
 
 /* Ej 7  REVISARRR 	*/
-SELECT E.dni, E.apellido, E.nombre, COUNT(*)
+SELECT E.dni, E.apellido, E.nombre, COUNT(R.nroEmp)
 FROM Empleado E LEFT JOIN Reparacion R ON E.nroEmp = R.nroEmp
 GROUP BY E.nroEmp, E.dni, E.apellido, E.nombre
 
