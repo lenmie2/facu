@@ -1,0 +1,1 @@
+|red u1 u2 u3|red:= RedSocial new.u1:= Usuario newWithName: 'carlos'.u2:= Usuario newWithName: 'susana'.u3:= Usuario newWithName: 'oreo'.red agregarUsuario: u1.red agregarUsuario: u2.red agregarUsuario: u3.u1 addFriend: u2.u1 addFriend: u3.u1 post: 'ah, re'.u1 post: 'loco'.u2 post: 'macri gato'.u1 inspect.

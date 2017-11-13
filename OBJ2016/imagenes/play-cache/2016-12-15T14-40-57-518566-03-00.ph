@@ -1,0 +1,1 @@
+BGSArenaWindow expertViewOn: (OnTheFlyConfigurableSimulation batteryWalkingBrush)

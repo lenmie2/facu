@@ -1,0 +1,33 @@
+| facturador titular mr mri |
+
+"Crea e inicializa el facturador"
+
+facturador:=FacturadorDeEnergia new.
+
+"Crea, inicializa y da de alta un cliente"
+titular:=Cliente nombre: 'Matias'.
+titular direccion: (Direccion calle: '71' numero: '22 bis').
+titular telefono: '0221 45212343'.
+
+"Crea, inicializa y da de alta un medidor inductivo"
+
+mr:=MedidorReactivo titular: titular numero: 1.
+mr direccion: (Direccion calle: '40' numero: '500').
+facturador agregarMedidor: mr.
+
+"Crea, inicializa y da de alta un medidor reactivo-inductivo"
+mri:=MedidorReactivoInductivo titular: titular numero: 2.
+mri direccion: (Direccion calle: '61' numero: '9 y 1/2').
+facturador agregarMedidor: mri.
+
+"Carga una medicion reactiva (estado) al medidor reactivo"
+mr ultimaMedicionReactiva: 10.
+
+"Carga una medicion reactiva y una inductiva al medidor reactivo-inductivo"
+mri ultimaMedicionReactiva: 10.
+mri ultimaMedicionInductiva: 1001.
+
+"factura todos los medidores"
+
+facturador facturarTodosLosMedidores
+
