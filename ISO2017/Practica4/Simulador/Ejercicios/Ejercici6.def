@@ -1,0 +1,15 @@
+#Ejercicio 6
+TAREA "1" INICIO=0
+[CPU,4]
+
+TAREA "2" INICIO=2
+[CPU,5]
+
+TAREA "3" INICIO=3
+[CPU,4]
+
+TAREA "4" INICIO=6
+[CPU,5]
+
+TAREA "5" INICIO=8
+[CPU,2]
