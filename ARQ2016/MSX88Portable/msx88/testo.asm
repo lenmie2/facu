@@ -1,0 +1,13 @@
+PIO		EQU		30H
+
+		ORG		2000H
+		MOV		AL, 0
+		OUT		PIO+3, AL
+		MOV		AL, 3CH
+		OUT		PIO+1, AL
+		MOV		AL, 4CH
+		OUT		PIO+1, AL
+		MOV		AL, 5CH
+		OUT		PIO+1, AL
+LAZO:	JMP 	LAZO
+		END

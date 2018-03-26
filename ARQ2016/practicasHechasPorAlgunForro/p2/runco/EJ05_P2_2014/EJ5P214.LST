@@ -1,0 +1,70 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ5P212.LST
+ Programa Fuente en: EJ5P212.asm
+ Fecha: Sat Sep 01 16:37:15 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	                    ORG 1000H
+ 1000 F4		      2	             NUM    DB  ?
+ 1001 63 41 52 41 43 54	      3	             MSJ1   DB  "cARACTER NO VALIDO"
+ 1007 45 52 20 4E 4F 20
+ 100D 56 41 4C 49 44 4F
+ 1013 63		      4	             FIN1   DB  ?
+ 1014 43 41 52 41 43 54	      5	             MSJ2   DB  "CARACTER VALIDO"
+ 101A 45 52 20 56 41 4C
+ 1020 49 44 4F
+ 1023 43		      6	             FIN2   DB  ?
+			      7	;
+			      8	;
+			      9	                    ORG 3000H
+ 3000 8A 27		     10	           ES_NUM:  MOV AH, [BX]
+ 3002 80 EC 30		     11	                    SUB AH, 30H
+ 3005 80 FC 0A		     12	                    CMP AH, 10
+ 3008 73 05		     13	                    JNC NO_ES
+ 300A B4 FF		     14	                    MOV AH, 0FFH
+ 300C E9 11 30		     15	                    JMP FIN
+ 300F B4 00		     16	            NO_ES:  MOV AH, 00H
+ 3011 C3		     17	              FIN:  RET
+			     18	;
+			     19	;
+			     20	                    ORG 2000H
+ 2000 BB 00 10		     21	                    MOV BX, OFFSET NUM
+ 2003 CD 06		     22	                    INT 6
+ 2005 E8 00 30		     23	                    CALL ES_NUM
+ 2008 80 FC 00		     24	                    CMP AH, 00H
+ 200B 74 0A		     25	                    JZ NO_ES_NU
+ 200D BB 14 10		     26	                    MOV BX, OFFSET MSJ2
+ 2010 B0 0F		     27	                    MOV AL, OFFSET FIN2 - OFFSET
+				 MSJ2
+ 2012 CD 07		     28	                    INT 7
+ 2014 E9 1E 20		     29	                    JMP AFUERA
+ 2017 BB 01 10		     30	        NO_ES_NUM:  MOV BX, OFFSET MSJ1
+ 201A B0 12		     31	                    MOV AL, OFFSET FIN1 - OFFSET
+				 MSJ1
+ 201C CD 07		     32	                    INT 7
+ 201E F4		     33	           AFUERA:  HLT
+			     34	                    END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ NUM     	Byte		1000h
+ MSJ1    	Byte		1001h
+ FIN1    	Byte		1013h
+ MSJ2    	Byte		1014h
+ FIN2    	Byte		1023h
+ ES_NUM  	Label		3000h
+ NO_ES   	Label		300Fh
+ FIN     	Label		3011h
+ NO_ES_NU	Label		2017h
+
+
+
+								p gina: 2 
+
+ AFUERA  	Label		201Eh

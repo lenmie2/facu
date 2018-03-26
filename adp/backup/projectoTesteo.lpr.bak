@@ -1,0 +1,122 @@
+TAD tipoListaEntero
+interface
+  type export ListaEntero
+  procedure crearLista(var pri: pun);
+  procedure  recorrerLista(pri: pun);
+  procedure agregarElementoFinal(pri: pun; ele: integer);
+  procedure intercalar(var pri: pun; elem: integer);
+  procedure eliminarElemento(var pri: pun; ele: integer);
+  procedure elementoEn(pri: pun; var ele:integer;k:integer);
+  procedure posicionDe(pri:pun;ele: integer;var pos:pun);
+implementation
+    type
+      pun = ^reg;
+      reg = record
+          num: integer;
+          sig: pun;
+      end;
+    procedure crearLista(var pri: pun);
+    begin
+       pri:= nil;
+    end;
+    procedure  recorrerLista(pri: pun);
+    var
+    nue: pun;
+    pos: integer;
+    begin
+    nue:= pri;
+    pos:= 1;
+    writeln('POSICION           ELEMENTO');
+    while(nue <> nil) do begin
+      writeln(pos,nue^.num);
+      nue:= nue^.sig;
+      pos:= pos+1;
+    end;
+    end;
+    procedure agregarElementoFinal(pri: pun; ele: integer);
+    var
+     ult,nue: pun;
+    begin
+     nue:= pri;
+     while(nue <> nul) do begin
+       ult:= nue;
+       nue:= nue^.sig;
+     end;
+     new(nue);
+     nue^.num:= ele;
+     ult^.sig:= nue;
+     nue^.sig:= nil;
+    end;
+
+    procedure intercalar(var pri: pun; elem: integer);
+    var
+     nue1,nue,ult: pun;
+    begin
+    new(nue1);
+    nue1^.num:= elem;
+    nue:= pri;
+    ult:= pri;
+    while(nue <> nil) and (nue^.num < nue1^.num) do begin
+      ult:= nue;
+      nue:= nue^sig;
+    end;
+    if(nue = ult) then pri:= nue1; //si es el primer elemento
+    else ult^.sig:= nue1; //si encontre, intercalo en el anterior, que es ult
+    nue1^.sig:= nue; //engancho el posterior, que es nue
+
+    procedure eliminarElemento(var pri: pun; ele: integer);
+    var
+    nue, ult: pun;
+    begin
+     nue:= pri;
+     ult:= pri;
+     while(nue <> nil)do begin
+       if(nue^.num = ele) then begin
+         if(nue = pri) then begin   //el primero es el elemento encontrado
+           pri:= nue^.sig;               //el primero pasa a ser su siguiente
+           ult:= pri;                    //, borrando el nodo contenido en pri
+         end
+         else
+           ult^.sig:= nue^.sig;     //el siguiente del ultimo nodo leido pasa a ser su anterior, borrando el nodo contenido en ult
+       end
+       else ult:= nue;              //se mueve
+       nue:= nue^.sig;              //al siguiente nodo
+    end;
+    procedure elementoEn(pri: pun; var ele:integer;k:integer);
+    var
+     pos: integer;
+     nue,ult: pun;
+    begin
+     if(pri = nil) then writeln('error, la list ano tiene elementos');
+     else begin
+          pos:= 1;
+          nue:= pri;
+          while(nue <> nil) and (pos < k) do begin
+            pos:= pos+1;
+            nue:= nue^.sig;
+          end;
+          if pos = k) then begin
+            ele:= nue^.num;
+            writeln('el elemento en ',k,' es: ',ele);
+          end
+          else write('el elemento en ',k,' excede la longitud de la lista');
+     end;
+    end;
+    procedure posicionDe(pri:pun;ele: integer;var pos:pun);
+    var
+     nue,ult: pun;
+    begin
+     if(pri=nil)then writeln('error, lista vacia');
+     else begin
+          nue:= pri;
+       while(nue<>nil) and (ele<>nue^.num) do
+         nue:= nue^.sig;
+         if(nue<>nil) and (ele=nue^.num) then pos:= nue;
+         else write('no se encontro');
+       end;
+    end;
+
+
+
+
+

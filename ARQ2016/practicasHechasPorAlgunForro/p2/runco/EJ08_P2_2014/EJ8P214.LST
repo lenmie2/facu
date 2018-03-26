@@ -1,0 +1,108 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ8P212.LST
+ Programa Fuente en: EJ8P212.asm
+ Fecha: Sat Sep 01 16:47:43 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	                                         ORG  10
+				00H
+ 1000 49 4E 47 52 45 53	      2	                            MSJ1         DB  "IN
+				GRESE PRIMER NUMERO"
+ 1006 45 20 50 52 49 4D
+ 100C 45 52 20 4E 55 4D
+ 1012 45 52 4F
+ 1015 49		      3	                            FIN1         DB   ?
+ 1016 49 4E 47 52 45 53	      4	                            MSJ2         DB  "IN
+				GRESE SEGUNDO NUMERO"
+ 101C 45 20 53 45 47 55
+ 1022 4E 44 4F 20 4E 55
+ 1028 4D 45 52 4F
+ 102C 49		      5	                            FIN2         DB   ?
+ 102D 49		      6	                            NUM1         DB   ?
+ 102E 49		      7	                            NUM2         DB   ?
+ 102F 30		      8	                            RESUL        DB   30
+				H
+ 1030 30		      9	                                         DB   30
+				H
+			     10	;
+			     11	;
+			     12	                                         ORG 200
+				0H
+ 2000 B8 00 00		     13	                                         MOV AX,
+				 0000H
+ 2003 BB 00 10		     14	                                         MOV BX,
+				 OFFSET MSJ1
+ 2006 B0 15		     15	                                         MOV AL,
+				 OFFSET FIN1 - OFFSET MSJ1
+ 2008 CD 07		     16	                                         INT 7
+ 200A BB 2D 10		     17	                                         MOV BX,
+				 OFFSET NUM1
+ 200D CD 06		     18	                                         INT 6
+ 200F BB 16 10		     19	                                         MOV BX,
+				 OFFSET MSJ2
+ 2012 B0 16		     20	                                         MOV AL,
+				 OFFSET FIN2 - OFFSET MSJ2
+ 2014 CD 07		     21	                                         INT 7
+ 2016 BB 2E 10		     22	                                         MOV BX,
+				 OFFSET NUM2
+ 2019 CD 06		     23	                                         INT 6
+ 201B 8A 26 2D 10	     24	                                         MOV AH,
+				 NUM1
+ 201F 2A 26 2E 10	     25	                                         SUB  AH
+				, NUM2
+ 2023 8A C4		     26	                                         MOV AL,
+				 AH
+ 2025 80 E0 80		     27	                                         AND AL,
+				 10000000b
+ 2028 75 08		     28	                                         JNZ ES_
+				NEGA
+ 202A 80 C4 30		     29	                                         ADD AH,
+				 30H
+ 202D B0 2B		     30	                                         MOV AL,
+
+
+
+								p gina: 2 
+
+				 2BH
+ 202F E9 40 20		     31	                                         JMP AFU
+				ERA
+ 2032 B1 FF		     32	                             ES_NEGA:    MOV CL,
+				 255
+ 2034 2A CC		     33	                                         SUB CL,
+				 AH
+ 2036 80 C1 01		     34	                                         ADD CL,
+				 1
+ 2039 8A E1		     35	                                         MOV AH,
+				 CL
+ 203B 80 C4 30		     36	                                         ADD AH,
+				 30H
+ 203E B0 2D		     37	                                         MOV AL,
+				 2DH
+ 2040 89 06 2F 10	     38	                             AFUERA:     MOV RES
+				UL, AX
+ 2044 BB 2F 10		     39	                                         MOV BX,
+				 OFFSET RESUL
+ 2047 B0 02		     40	                                         MOV AL,
+				 2
+ 2049 CD 07		     41	                                         INT 7
+ 204B F4		     42	                                         HLT
+			     43	                                         END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ MSJ1    	Byte		1000h
+ FIN1    	Byte		1015h
+ MSJ2    	Byte		1016h
+ FIN2    	Byte		102Ch
+ NUM1    	Byte		102Dh
+ NUM2    	Byte		102Eh
+ RESUL   	Byte		102Fh
+ ES_NEGA 	Label		2032h
+ AFUERA  	Label		2040h

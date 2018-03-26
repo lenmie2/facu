@@ -1,0 +1,34 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ3P212.LST
+ Programa Fuente en: EJ3P212.asm
+ Fecha: Sat Sep 01 16:34:26 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	                    ORG 1000H
+ 1000 41		      2	           LETRA    DB  41H     
+			      3	;
+			      4	;
+			      5	                    ORG 2000H
+ 2000 B4 1B		      6	                    MOV AH, 27  
+ 2002 BB 00 10		      7	                    MOV BX, OFFSET LETRA
+ 2005 B0 01		      8	                    MOV AL, 1
+ 2007 CD 07		      9	            SIGO:   INT 7
+ 2009 80 07 20		     10	                    ADD BYTE PTR [BX], 20H 
+ 200C CD 07		     11	                    INT 7
+ 200E 80 2F 20		     12	                    SUB BYTE PTR [BX], 20H  
+ 2011 80 07 01		     13	                    ADD BYTE PTR [BX], 1 
+ 2014 FE CC		     14	                    DEC AH
+ 2016 75 EF		     15	                    JNZ SIGO
+ 2018 F4		     16	                    HLT
+			     17	                    END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ LETRA   	Byte		1000h
+ SIGO    	Label		2007h

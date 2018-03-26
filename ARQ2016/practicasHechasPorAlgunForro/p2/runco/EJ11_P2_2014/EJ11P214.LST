@@ -1,0 +1,82 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ11P212.LST
+ Programa Fuente en: EJ11P212.asm
+ Fecha: Sat Sep 01 16:49:23 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	                           EOI         EQU    20
+				H
+			      2	                           PIC         EQU   20H
+			      3	                           IMR         EQU   21H
+			      4	                           INT0       EQU   24H
+			      5	                           N_F10   EQU    8
+			      6	;
+			      7	;                                          ORG  
+				1000H
+ 0000 41		      8	                    MOSTRAR    DB     "A"
+			      9	;
+			     10	                                            ORG 
+				 32
+ 0020 00 30		     11	                                            DW  
+				  INT_F10
+			     12	;
+			     13	                                             ORG
+				  3000H
+ 3000 CD 07		     14	                     INT_F10:        INT 7
+ 3002 B0 20		     15	                                             MOV
+				 AL, EOI
+ 3004 E6 20		     16	                                             OUT
+				 PIC, AL
+ 3006 CF		     17	                                              IR
+				ET
+			     18	;
+			     19	;
+			     20	                                            ORG 
+				 2000H
+ 2000 FA		     21	                                            CLI
+ 2001 8A 26 00 00	     22	                                            MOV 
+				AH, MOSTRAR
+ 2005 B0 FE		     23	                                            MOV 
+				AL, 0FEH
+ 2007 E6 21		     24	                                            OUT 
+				IMR, AL
+ 2009 B0 08		     25	                                            MOV 
+				AL, N_F10
+ 200B E6 24		     26	                                            OUT 
+				INT0, AL
+ 200D BB 00 00		     27	                                            MOV 
+				BX, OFFSET MOSTRAR
+ 2010 B0 01		     28	                                            MOV 
+				AL,1
+ 2012 FB		     29	                                            STI
+ 2013 FE C4		     30	                       SIGO:           INC AH
+ 2015 88 26 00 00	     31	                                            MOV 
+				MOSTRAR, AH
+ 2019 80 FC 5A		     32	                                            CMP 
+				AH, 5AH
+ 201C 75 F5		     33	                                            JNZ 
+				 SIGO
+ 201E F4		     34	                                            HLT
+			     35	                                            END
+
+
+
+
+								p gina: 2 
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ EOI     	Number		  20h
+ PIC     	Number		  20h
+ IMR     	Number		  21h
+ INT0    	Number		  24h
+ N_F10   	Number		   8h
+ MOSTRAR 	Byte		   0h
+ INT_F10 	Label		3000h
+ SIGO    	Label		2013h

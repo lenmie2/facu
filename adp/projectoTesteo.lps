@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="projectoTesteo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../../Downloads/kzdesktop_beta02/kzlazdesktop.pas"/>
+        <ComponentName Value="KZLazDesktopInterface"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="KZLazDesktop"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1279"/>
+        <CursorPos X="3" Y="1294"/>
+        <UsageCount Value="10"/>
+      </Unit1>
+    </Units>
+    <JumpHistory Count="23" HistoryIndex="22">
+      <Position1>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="33" Column="15" TopLine="5"/>
+      </Position1>
+      <Position2>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="4" Column="12"/>
+      </Position2>
+      <Position3>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="18" Column="14" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="24" TopLine="6"/>
+      </Position4>
+      <Position5>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="23" Column="39"/>
+      </Position5>
+      <Position6>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="26" Column="30" TopLine="6"/>
+      </Position6>
+      <Position7>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="22" Column="14" TopLine="6"/>
+      </Position7>
+      <Position8>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="30" TopLine="6"/>
+      </Position8>
+      <Position9>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="24" Column="23" TopLine="9"/>
+      </Position9>
+      <Position10>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="22" Column="45" TopLine="9"/>
+      </Position10>
+      <Position11>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="6" Column="13"/>
+      </Position11>
+      <Position12>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="3"/>
+      </Position12>
+      <Position13>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="31" Column="4" TopLine="2"/>
+      </Position13>
+      <Position14>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="21" Column="17" TopLine="2"/>
+      </Position14>
+      <Position15>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="19" Column="11"/>
+      </Position15>
+      <Position16>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="20" Column="58"/>
+      </Position16>
+      <Position17>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="62" Column="44" TopLine="33"/>
+      </Position17>
+      <Position18>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="8" Column="43"/>
+      </Position18>
+      <Position19>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="30" Column="45" TopLine="15"/>
+      </Position19>
+      <Position20>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="33" Column="34"/>
+      </Position20>
+      <Position21>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="70" Column="9" TopLine="41"/>
+      </Position21>
+      <Position22>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="55" Column="87" TopLine="40"/>
+      </Position22>
+      <Position23>
+        <Filename Value="projectoTesteo.lpr"/>
+        <Caret Line="3" Column="26"/>
+      </Position23>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

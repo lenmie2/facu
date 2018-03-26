@@ -1,0 +1,28 @@
+		;Memoria de datos
+		ORG 	1000H
+DATO	DB		"A"
+VOC		DW		"AaEeIiOoUu"
+FIN		DW		?	
+
+		;Subrutina ES_VOCAL
+ES_VOCAL:CMP	[BX],AL
+		JZ		SUCC
+		DEC		DL
+		JNZ		ES_VOCAL
+		MOV		CL,0
+		JMP		FIN
+SUCC:	MOV		CL,0FFH
+FIN:	RET
+
+		;Programa Principal
+		ORG		2000H
+		PUSH	AX
+		PUSH	CX
+		PUSH	BX
+		MOV		AL, DATO
+		MOV		CL, 0		;Resultado 00H 0FFH
+		MOV		BX, OFFSET VOCALES		;Dir de Arreglo
+		MOV		DL, OFFSET FIN - OFFSET VOCALES		;Largo del string
+		CALL	ES_VOCAL
+		HLT
+		END

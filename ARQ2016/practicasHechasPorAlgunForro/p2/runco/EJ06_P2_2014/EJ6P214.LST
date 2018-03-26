@@ -1,0 +1,170 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ6P212.LST
+ Programa Fuente en: EJ6P212.asm
+ Fecha: Sat Sep 01 16:41:06 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	                      ORG 1000H
+ 1000 49 4E 47 52 45 53	      2	                MSJ   DB "INGRESE UN NUMERO"
+ 1006 45 20 55 4E 20 4E
+ 100C 55 4D 45 52 4F
+ 1011 49		      3	                FINM  DB ?
+ 1012 49		      4	                NUM   DB ?
+ 1013 43 45 52 4F	      5	              CERO0   DB "CERO"
+ 1017 43		      6	              FIN0    DB ?
+ 1018 55 4E 4F		      7	              UNO1    DB "UNO"
+ 101B 55		      8	              FIN1    DB ?
+ 101C 44 4F 53		      9	              DOS2    DB "DOS"
+ 101F 44		     10	              FIN2    DB ?
+ 1020 54 52 45 53	     11	              TRES3   DB "TRES"
+ 1024 54		     12	              FIN3    DB ?
+ 1025 43 55 41 54 52 4F	     13	            CUATRO4   DB "CUATRO"
+ 102B 43		     14	              FIN4    DB ?
+ 102C 43 49 4E 43 4F	     15	             CINCO5   DB "CINCO"
+ 1031 43		     16	              FIN5    DB ?
+ 1032 53 45 49 53	     17	             SEIS6    DB "SEIS"
+ 1036 53		     18	              FIN6    DB ?
+ 1037 53 49 45 54 45	     19	             SIETE7   DB "SIETE"
+ 103C 53		     20	              FIN7    DB ?
+ 103D 4F 43 48 4F	     21	             OCHO8    DB "OCHO"
+ 1041 4F		     22	              FIN8    DB ?
+ 1042 4E 55 45 56 45	     23	             NUEVE9   DB "NUEVE"
+ 1047 4E		     24	              FIN9    DB ?
+			     25	;
+			     26	;
+			     27	                      ORG 2000H
+ 2000 B4 00		     28	            SIGO1:    MOV AH, 0
+ 2002 BB 00 10		     29	            SIGO:     MOV BX, OFFSET MSJ
+ 2005 B0 11		     30	                      MOV AL, OFFSET FINM - OFFS
+				ET MSJ
+ 2007 CD 07		     31	                      INT 7
+ 2009 BB 12 10		     32	                      MOV BX, OFFSET NUM
+ 200C CD 06		     33	                      INT 6
+ 200E 8A 0E 12 10	     34	                      MOV CL, NUM
+ 2012 80 F9 30		     35	                      CMP CL, 30H
+ 2015 75 12		     36	                      JNZ UNO_1
+ 2017 BB 13 10		     37	                      MOV BX, OFFSET CERO0
+ 201A B0 04		     38	                      MOV AL, OFFSET FIN0 - OFFS
+				ET CERO0
+ 201C CD 07		     39	                      INT 7
+ 201E 80 C4 01		     40	                      ADD AH, 1
+ 2021 80 FC 01		     41	                      CMP AH, 1
+ 2024 74 DC		     42	                      JZ SIGO
+ 2026 E9 AB 20		     43	                      JMP AFUERA
+ 2029 80 F9 31		     44	              UNO_1:  CMP CL, 31H
+ 202C 75 0A		     45	                      JNZ DOS_2
+ 202E BB 18 10		     46	                      MOV BX, OFFSET UNO1
+ 2031 B0 03		     47	                      MOV AL, OFFSET FIN1 - OFFS
+				ET UNO1
+ 2033 CD 07		     48	                      INT 7
+ 2035 E9 00 20		     49	                      JMP SIGO1
+ 2038 80 F9 32		     50	              DOS_2:  CMP CL, 32H
+
+
+
+								p gina: 2 
+
+ 203B 75 0A		     51	                      JNZ TRES_3
+ 203D BB 1C 10		     52	                      MOV BX, OFFSET DOS2
+ 2040 B0 03		     53	                      MOV AL, OFFSET FIN2 - OFFS
+				ET DOS2
+ 2042 CD 07		     54	                      INT 7
+ 2044 E9 00 20		     55	                      JMP SIGO1
+ 2047 80 F9 33		     56	             TRES_3:  CMP CL, 33H
+ 204A 75 0A		     57	                      JNZ CUATRO_4
+ 204C BB 20 10		     58	                      MOV BX, OFFSET TRES3
+ 204F B0 04		     59	                      MOV AL, OFFSET FIN3 - OFFS
+				ET TRES3
+ 2051 CD 07		     60	                      INT 7
+ 2053 E9 00 20		     61	                      JMP SIGO1
+ 2056 80 F9 34		     62	           CUATRO_4:  CMP CL, 34H
+ 2059 75 0A		     63	                      JNZ CINCO_5
+ 205B BB 25 10		     64	                      MOV BX, OFFSET CUATRO4
+ 205E B0 06		     65	                      MOV AL, OFFSET FIN4 - OFFS
+				ET CUATRO4
+ 2060 CD 07		     66	                      INT 7
+ 2062 E9 00 20		     67	                      JMP SIGO1
+ 2065 80 F9 35		     68	            CINCO_5:  CMP CL, 35H
+ 2068 75 0A		     69	                      JNZ SEIS_6
+ 206A BB 2C 10		     70	                      MOV BX, OFFSET CINCO5
+ 206D B0 05		     71	                      MOV AL, OFFSET FIN5 - OFFS
+				ET CINCO5
+ 206F CD 07		     72	                      INT 7
+ 2071 E9 00 20		     73	                      JMP SIGO1
+ 2074 80 F9 36		     74	             SEIS_6:  CMP CL, 36H
+ 2077 75 0A		     75	                      JNZ SIETE_7
+ 2079 BB 32 10		     76	                      MOV BX, OFFSET SEIS6
+ 207C B0 04		     77	                      MOV AL, OFFSET FIN6 - OFFS
+				ET SEIS6
+ 207E CD 07		     78	                      INT 7
+ 2080 E9 00 20		     79	                      JMP SIGO1
+ 2083 80 F9 37		     80	            SIETE_7:  CMP CL, 37H
+ 2086 75 0A		     81	                      JNZ OCHO_8
+ 2088 BB 37 10		     82	                      MOV BX, OFFSET SIETE7
+ 208B B0 05		     83	                      MOV AL, OFFSET FIN7 - OFFS
+				ET SIETE7
+ 208D CD 07		     84	                      INT 7
+ 208F E9 00 20		     85	                      JMP SIGO1
+ 2092 80 F9 38		     86	             OCHO_8:  CMP CL, 38H
+ 2095 75 0A		     87	                      JNZ NUEVE_9
+ 2097 BB 3D 10		     88	                      MOV BX, OFFSET OCHO8
+ 209A B0 04		     89	                      MOV AL, OFFSET FIN8 - OFFS
+				ET OCHO8
+ 209C CD 07		     90	                      INT 7
+ 209E E9 00 20		     91	                      JMP SIGO1
+ 20A1 BB 42 10		     92	            NUEVE_9:  MOV BX, OFFSET NUEVE9
+ 20A4 B0 05		     93	                      MOV AL, OFFSET FIN9 - OFFS
+				ET NUEVE9
+ 20A6 CD 07		     94	                      INT 7
+ 20A8 E9 00 20		     95	                      JMP SIGO1
+ 20AB F4		     96	            AFUERA:   HLT
+			     97	                      END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+
+
+
+								p gina: 3 
+
+ MSJ     	Byte		1000h
+ FINM    	Byte		1011h
+ NUM     	Byte		1012h
+ CERO0   	Byte		1013h
+ FIN0    	Byte		1017h
+ UNO1    	Byte		1018h
+ FIN1    	Byte		101Bh
+ DOS2    	Byte		101Ch
+ FIN2    	Byte		101Fh
+ TRES3   	Byte		1020h
+ FIN3    	Byte		1024h
+ CUATRO4 	Byte		1025h
+ FIN4    	Byte		102Bh
+ CINCO5  	Byte		102Ch
+ FIN5    	Byte		1031h
+ SEIS6   	Byte		1032h
+ FIN6    	Byte		1036h
+ SIETE7  	Byte		1037h
+ FIN7    	Byte		103Ch
+ OCHO8   	Byte		103Dh
+ FIN8    	Byte		1041h
+ NUEVE9  	Byte		1042h
+ FIN9    	Byte		1047h
+ SIGO1   	Label		2000h
+ SIGO    	Label		2002h
+ UNO_1   	Label		2029h
+ DOS_2   	Label		2038h
+ TRES_3  	Label		2047h
+ CUATRO_4	Label		2056h
+ CINCO_5 	Label		2065h
+ SEIS_6  	Label		2074h
+ SIETE_7 	Label		2083h
+ OCHO_8  	Label		2092h
+ NUEVE_9 	Label		20A1h
+ AFUERA  	Label		20ABh

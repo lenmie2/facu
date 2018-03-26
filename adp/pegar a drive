@@ -1,0 +1,26 @@
+CONCEPTOS GENERALES
+Informatica: Es la ciencia que estudia el analisis y resolucion de problemas utilizando computadoras
+Computadoras: Es una maquina digital y sincronica, con cierta capacidad de calculo numerico y logico, controlada por programas almacenados y con posibilidad de comunicacion con el mundo exterior
+Programa: Es un conjunto de instrucciones ejecutables sobre una computadora que permite cumplir una funcion especifica. Normalmente alcanza su funcion en tiempo finito.
+Dato: Es una representacion de un objeto del mundo real, mediante la cual se pueden modelizar aspectos de un problema. Son valores de informacion almacenados en memoria de los que se necesitan disponer y en ocaciones transformar, para ejecutar con la funcion de un programa. Se dividen en constantes y variables
+Lenguaje de Programacion: Es un metodo de codificar las ordenes de un programador para ser entendidas por una computadora mediante un conjunto de operaciones permitidas y definidas por reglas sintacticas y semanticas, para la expresion de soluciones a problemas
+Ambiente de Programacion: Es el entorno o contexto donde un programador puede escribir su algoritmo para ser compilado y ejecutado por un ordenador
+Precondicion: Es la informacion que se conoce como verdadera antes de iniciar el programa
+Postcondicion: Es la informacion que debiera ser verdadera al finalizar el programa o modulo, si se cumple adecuadamente con el requerimiento pedido.
+Algoritmo: Es la especificacion rigurosa de la secuencia de pasos(instrucciones) a realizar sobre un automata(computadora) para alcanzar un resultado deseado en tiempo finito.
+Abstraccion: es el proceso de analisis del mundo real para interpretar aspectos esenciales de un problema y expresarlo en terminos precisos
+Modelizacion: Es abstraer un problema del mundo real y simplificar su expresion tratando de encontrar los aspectos principales que se pueden resolver (requerimientos), los datos que se deben procesar y contexto del problema
+Varialbles Constantes:
+
+CARACTERISTICAS DE UN PROGRAMA
+Correcion(Hace lo que se le pide?): El grado en que una aplicacion satisface sus especificaciones y consigue sus objetivos encomendados por un cliente
+Fiabilidad(Lo hace de forma fiable todo el tiempo?): El grado que se puede esperar que una aplicacion lleve a cabo las operaciones especificadas y con la presicion requerida
+Eficiencia(Que recursos hardware y software necesito?): La cantidad de recursos hardware y software que necesita una aplicacion para realizar las operaciones con los tiempos de respuesta adecuados
+Integridad(Puedo controlar su uso?): El grado con que puede controlarse el acceso al software o a los datos, personal no autorizado
+Facilidad de uso(Es facil y comodo de manejar?): El esfuerzo requerido para aprender el manejo de una aplicacion, trabajar con ella, introducir datos y conseguir resultados.
+Facilidad de mantenimiento(Puedo localizar los fallos?): El esfuerzo requerido para localizar y reparar errores. Vinculado con la modularizacion, cuestiones de legibilidad y documentacion.
+Flexibilidad(Puedo añadir nuevas opciones?): El esfuerzo requerido para modificar una aplicacion en funcionamiento
+Facilidad de Prueba(Puedo probar todas las opciones?): El esfuerzo requerido para probar una aplicacion de forma que cumpla con lo especificado en los requisitos.
+Portabilidad(Podre usarlo en otra maquina?): El esfuerzo requerido para transferir la aplicacion a otro hardware o sistema operativo
+Reusabilidad(Podre utilizar alguna parte del software en otra aplicacion?): Grado en que las partes de una aplicacion pueden utilizarse en otras aplicaciones.
+Interoperabilidad(Podra comunicarse con otras aplicaciones o sistemas informaticos?): El esfuerzo necesario para comunicar la aplicacion con otras aplicaciones o sistemas informaticos

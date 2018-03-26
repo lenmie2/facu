@@ -1,0 +1,56 @@
+
+								p gina: 1 
+
+ Listado Fuente: \.LST
+ Programa Fuente en: p2e12.ASM
+ Fecha: Fri Sep 02 15:11:50 2016
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	PIC		EQU		20H
+			      2	EOI		EQU		20H
+ 0000 00 30		      3	N_F10	DW		RUT_F10
+			      4	
+			      5			ORG		40
+ 0028 00 30		      6	IP_F10	DW		RUT_F10
+			      7	
+			      8			ORG		3000H
+ 3000 CD 07		      9	RUT_F10:INT		7
+ 3002 50		     10			PUSH	AX
+ 3003 B0 20		     11			MOV		AL,EOI
+ 3005 E6 20		     12			OUT		EOI,AL
+ 3007 58		     13			POP		AX
+ 3008 CF		     14			IRET
+			     15	
+			     16			ORG		2000H
+ 2000 FA		     17			CLI
+ 2001 B0 FE		     18			MOV		AL,0FEH
+ 2003 E6 21		     19			OUT		PIC+1,AL
+ 2005 8A 06 00 00	     20			MOV		AL,N_F10
+ 2009 E6 24		     21			OUT		PIC+4,AL
+ 200B BA 00 00		     22			MOV		DX,0
+ 200E FB		     23			STI
+ 200F B0 01		     24			MOV		AL,1
+ 2011 BB 00 00		     25			MOV		BX,0
+ 2014 88 00 00 00	     26	LOOP:	MOV		[BX],40H
+Error: Operando indefinido. Usar PTR.
+ 2018 FE 00		     27	LAZO:	INC		[BX]
+Error: Operando indefinido. Usar PTR.
+ 201A 38 38 00 00	     28			CMP		[BX],60H
+Error: Operando indefinido. Usar PTR.
+ 201E 75 F8		     29			JNZ		LAZO
+ 2020 E9 14 20		     30			JMP		LOOP
+			     31			END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ PIC     	Number		  20h
+ EOI     	Number		  20h
+ N_F10   	Word		   0h
+ IP_F10  	Word		  28h	No usado
+ RUT_F10 	Label		3000h
+ LOOP    	Label		2014h
+ LAZO    	Label		2018h

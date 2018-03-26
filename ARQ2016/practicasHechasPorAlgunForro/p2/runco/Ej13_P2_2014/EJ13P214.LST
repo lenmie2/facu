@@ -1,0 +1,92 @@
+
+								p gina: 1 
+
+ Listado Fuente: EJ13P212.LST
+ Programa Fuente en: EJ13P212.asm
+ Fecha: Sat Sep 01 16:51:54 2012
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	TIMER	EQU     10H
+			      2	PIC	EQU     20H
+			      3	EOI	EQU     20H
+			      4	N_CLK	EQU     10
+			      5		
+			      6		ORG 40
+ 0028 00 30		      7	IP_CLK	DW      RUT_CLK
+			      8		
+			      9		ORG 1000H
+ 1000 30		     10	 MIN          DB      30H
+ 1001 30		     11	                  DB      30H
+ 1002 3A		     12	                  DB      ":"
+ 1003 30		     13	SEG	DB      30H
+ 1004 30		     14		DB      30H
+ 1005 30		     15	FIN	DB      ?
+			     16		
+			     17		ORG 3000H
+ 3000 50		     18	RUT_CLK: PUSH AX
+ 3001 FE 06 04 10	     19	                   INC SEG+1
+ 3005 80 3E 04 10 3A	     20		CMP SEG+1,3AH
+ 300A 75 37		     21		JNZ RESET1
+ 300C C6 06 04 10 30	     22		MOV SEG+1,30H
+ 3011 FE 06 03 10	     23		INC SEG
+ 3015 80 3E 03 10 36	     24		CMP SEG,36H
+ 301A 75 25		     25		JNZ RESET
+ 301C C6 06 03 10 30	     26		MOV SEG,30H
+ 3021 FE 06 01 10	     27	                  INC MIN+1
+ 3025 80 3E 01 10 3A	     28	                  CMP MIN+1, 3AH
+ 302A 75 15		     29	                  JNZ RESET
+ 302C C6 06 01 10 30	     30	                   MOV MIN+1, 30H
+ 3031 FE 06 00 10	     31	                  INC MIN
+ 3035 80 3E 00 10 36	     32	                  CMP MIN, 36H
+ 303A 75 05		     33	                   JNZ RESET
+ 303C C6 06 00 10 30	     34	                   MOV MIN, 30H
+ 3041 CD 07		     35	RESET:	INT 7
+ 3043 B0 00		     36	RESET1:  MOV AL,0
+ 3045 E6 10		     37		OUT TIMER,AL
+ 3047 B0 20		     38		MOV AL,EOI
+ 3049 E6 20		     39		OUT PIC,AL
+ 304B 58		     40		POP AX
+ 304C CF		     41		IRET
+			     42		
+			     43		ORG 2000H
+ 2000 FA		     44		CLI
+ 2001 B0 FD		     45		MOV AL,0FDH
+ 2003 E6 21		     46		OUT PIC+1,AL       ; PIC: registro IMR
+ 2005 B0 0A		     47		MOV AL,N_CLK 
+ 2007 E6 25		     48		OUT PIC+5,AL       ; PIC: registro INT1
+ 2009 B0 01		     49		MOV AL,1
+ 200B E6 11		     50		OUT TIMER+1,AL     ; TIMER: registro CO
+				MP
+ 200D B0 00		     51		MOV AL,0
+ 200F E6 10		     52		OUT TIMER,AL       ; TIMER: registro CO
+				NT
+ 2011 BB 00 10		     53		MOV BX,OFFSET MIN
+
+
+
+								p gina: 2 
+
+ 2014 B0 05		     54		MOV AL,OFFSET FIN-OFFSET MIN
+ 2016 FB		     55		STI
+ 2017 E9 17 20		     56	LAZO:	JMP LAZO
+			     57		
+			     58		END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:
+
+ TIMER   	Number		  10h
+ PIC     	Number		  20h
+ EOI     	Number		  20h
+ N_CLK   	Number		   Ah
+ IP_CLK  	Word		  28h	No usado
+ MIN     	Byte		1000h
+ SEG     	Byte		1003h
+ FIN     	Byte		1005h
+ RUT_CLK 	Label		3000h
+ RESET   	Label		3041h
+ RESET1  	Label		3043h
+ LAZO    	Label		2017h
