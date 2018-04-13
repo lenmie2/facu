@@ -1,0 +1,23 @@
+unit hagoAlgo;
+
+interface
+type
+	numero= integer;
+
+function porDos(n: numero): integer;
+
+procedure porTres(var n: numero);
+
+
+implementation
+
+function porDos(n: numero): integer;
+begin
+	porDos:= n*2;
+end;
+procedure porTres(var n: numero);
+begin
+	n:= n*3;
+end;
+
+end.

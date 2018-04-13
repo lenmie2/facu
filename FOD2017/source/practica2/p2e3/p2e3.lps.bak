@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="p2e3.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="107"/>
+        <CursorPos X="41" Y="120"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="13" HistoryIndex="12">
+      <Position1>
+        <Filename Value="p2e3.pas"/>
+      </Position1>
+      <Position2>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="37" Column="50" TopLine="25"/>
+      </Position2>
+      <Position3>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="108" Column="17" TopLine="100"/>
+      </Position3>
+      <Position4>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="34" Column="41" TopLine="25"/>
+      </Position4>
+      <Position5>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="33" Column="43" TopLine="25"/>
+      </Position5>
+      <Position6>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="34" Column="41" TopLine="25"/>
+      </Position6>
+      <Position7>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="108" Column="35" TopLine="92"/>
+      </Position7>
+      <Position8>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="27" Column="19" TopLine="21"/>
+      </Position8>
+      <Position9>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="120" Column="33" TopLine="112"/>
+      </Position9>
+      <Position10>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="125" Column="25" TopLine="111"/>
+      </Position10>
+      <Position11>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="122" Column="41" TopLine="110"/>
+      </Position11>
+      <Position12>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="118" Column="45" TopLine="110"/>
+      </Position12>
+      <Position13>
+        <Filename Value="p2e3.pas"/>
+        <Caret Line="120" Column="9" TopLine="118"/>
+      </Position13>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

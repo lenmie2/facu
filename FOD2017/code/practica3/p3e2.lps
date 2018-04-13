@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="p3e2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="73"/>
+        <CursorPos X="53" Y="83"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="3" HistoryIndex="2">
+      <Position1>
+        <Filename Value="p3e2.pas"/>
+      </Position1>
+      <Position2>
+        <Filename Value="p3e2.pas"/>
+        <Caret Line="81" Column="14" TopLine="67"/>
+      </Position2>
+      <Position3>
+        <Filename Value="p3e2.pas"/>
+        <Caret Line="115" Column="20" TopLine="96"/>
+      </Position3>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

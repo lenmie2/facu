@@ -1,0 +1,176 @@
+{. Una cadena de restaurantes posee un archivo de productos que tiene a la venta. De
+cada producto se registra: código de producto, descripción, stock actual y stock
+mínimo. Diariamente el depósito debe efectuar envíos a cada uno de los tres
+restaurantes que se encuentran en la ciudad. Para esto, cada restaurante envía un
+archivo con los pedidos de productos. Cada pedido contiene código de producto y
+cantidad pedida. Se pide realizar el proceso de actualización del archivo maestro con
+los tres archivos detalle, obteniendo un informe de aquellos productos que quedaron
+debajo del stock mínimo y de aquellos pedidos que no pudieron satisfacerse totalmente
+por falta de elementos, informando la diferencia que no pudo ser enviada a cada
+restaurante.
+NOTA 1: Todos los archivos están ordenados por código de producto y el archivo
+maestro debe recorrerse sólo una vez y en forma simultánea con los detalle.
+NOTA 2: En los archivos detalle puede no aparecer algún producto. Puede aparecer el
+mismo producto en distintos detalles y en cada detalle el mismo producto aparece sólo
+una vez.
+}
+program p2e3;
+uses sysutils;
+const
+	valorAlto = 9999;
+	DIR = 'D:\facu\fod2017\scr\practica2\p2e3';
+type
+	tipoProducto = record
+		cod: integer;
+		sact:integer;
+		smin:integer;
+		des: string[50];
+	end;
+	tipoPedido = record
+		cod: integer;
+		can: integer;
+	end;
+
+	tipoArchProducto = file of tipoProducto;
+	tipoArchPedido = file of tipoPedido;
+///
+///
+///
+procedure importarDetalleDesdeTexto(var detalle: tipoArchPedido; indice: integer);
+var
+	texto: text;
+	regD: tipoPedido;
+begin
+	assign(texto,DIR+'\pedido'+IntToStr(indice)+'.txt');
+	assign(detalle,DIR+'\detalle'+IntToStr(indice)+'.dat');
+	reset(texto);
+	rewrite(detalle);
+	while (not eof(texto))do begin
+		readln(texto,regD.cod,regD.can);
+		write(detalle,regD);
+	end;
+	close(texto);
+	close(detalle);
+end;
+
+procedure importarMaestroDesdeTexto(var maestro: tipoArchProducto);
+var
+	texto: text;
+	regMa: tipoProducto;
+begin
+	assign(texto,DIR+'\productos.txt');
+	assign(maestro,DIR+'\maestro.dat');
+	reset(texto);
+	rewrite(maestro);
+	while(not eof(texto))do begin
+		readln(texto,regMa.cod,regMa.sact,regMa.smin,regMa.des);
+		write(maestro,regMa);
+	end;
+	close(texto);
+	close(maestro);
+end;
+
+procedure leer(var detalle: tipoArchPedido; var registro: tipoPedido);
+begin
+	if(not eof(detalle)) then
+		read(detalle,registro)
+	else
+		registro.cod:= valorAlto;
+end;	
+
+procedure minimo(var d1,d2,d3: tipoArchPedido;var min,regD1,regD2,regD3: tipoPedido);
+begin
+	if(regD1.cod<=regD2.cod) and (regD1.cod<=regD3.cod) then begin
+		min:=regD1;
+		leer(d1,regD1);
+    end
+	else
+		if(regD2.cod<=regD3.cod) then begin
+			min:= regD2;
+			leer(d2,regD2);
+		end
+		else begin
+			min:= regD3;
+			leer(d3,regD3);
+		end;
+end;
+procedure actualizar(var maestro: tipoArchProducto;
+					var det1,det2,det3: tipoArchPedido);
+var					
+	regMa:	tipoProducto;
+	regMin, regD1, regD2, regD3: tipoPedido;
+	codActual, totCant: integer;
+begin
+	assign(maestro,DIR+'\maestro.dat');
+	assign(det1,DIR+'\detalle1.dat');assign(det2,DIR+'\detalle2.dat');assign(det3,DIR+'\detalle3.dat');
+	reset(maestro);
+	reset(det1); reset(det2); reset(det3);
+
+	leer(det1,regD1); leer(det2,regD2); leer(det2,regD3);
+    read(maestro,regMa);
+
+	minimo(det1,det2,det3,regMin,regD1,regD2,regD3);
+	while(regMin.cod <> valorAlto) do begin
+		totCant:= 0; 
+		codActual:= regMin.cod;
+		while (codActual = regMin.cod) do begin
+			totCant:= totCant + regMin.can;
+			minimo(det1,det2,det3,regMin,regD1,regD2,regD3);
+		end;
+		writeln('codActual: ',regMa.cod);readln();
+		while (regMa.cod <> codActual)do begin
+			writeln('REGISTRO MAESTRO: ',regMa.cod);readln();
+			read(maestro,regMa);
+		end;
+		regMa.sact:= regMa.sact - totCant;
+
+		if (regMa.sact < 0)then begin
+			writeln('no se pudo satisfacer la venta por',regMa.sact*-1);
+			regMa.sact:= 0;
+		end
+		else if (regMa.sact < regMa.smin) then
+			writeln('el producto',regMa.cod,' esta debajo del minimo');
+
+		seek(maestro,filepos(maestro)-1);
+		write(maestro,regMa);
+		if (not eof(maestro))then 
+			read(maestro,regMa);
+	end;
+		writeln('......');readln();
+	close(det1);close(det2);close(det3);
+	close(maestro);
+end;
+
+procedure mostrarMaestro(var maestro: tipoArchProducto);
+var
+	regMa: tipoProducto;
+begin
+	assign(maestro,DIR+'\maestro.dat');
+	reset(maestro);
+	while(not eof(maestro)) do begin
+		read(maestro,regMa);
+		writeln(regMa.cod);
+		writeln(regMa.des);
+		writeln(regMa.sact,' ',regMa.smin);
+	end;
+	close(maestro)
+end;	
+
+///
+///
+///
+VAR
+	maestro: tipoArchProducto;
+	det1,det2,det3: tipoArchPedido;
+	opcion: char;
+BEGIN
+	importarMaestroDesdeTexto(maestro);
+	importarDetalleDesdeTexto(det1,1);
+	importarDetalleDesdeTexto(det2,2);
+	importarDetalleDesdeTexto(det3,3);
+	write('Desea Actualizar? ');readln(opcion);
+	if (opcion = 's') then
+		actualizar(maestro,det1,det2,det3);
+  mostrarMaestro(maestro);
+	writeln('----Programa Finalizado----');readln();readln();
+END.	

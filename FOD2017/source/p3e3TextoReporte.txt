@@ -1,0 +1,15 @@
+-------------------------------
+----- Listado de Docentes -----
+-------------------------------
+-----
+Docente Codigo: 1
+		apellido:perez
+		nombre:juan
+		edad:35
+-----
+Docente Codigo: 4
+		apellido:fiorelli
+		nombre:carlos
+		edad:45
+-----
+------------- Fin -------------

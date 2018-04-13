@@ -1,0 +1,61 @@
+program p3e3;
+const
+	valoralto = 'ZZZZ';	
+type
+	docente = record
+		cod: integer;
+		nom: string[15];
+		ape: string[15];
+		cla: string[15];
+		eda: integer;
+		end;
+
+	Fdocente = file of docente
+
+procedure creardoc(var doc:docente);
+
+procedure Leer(var archivo:Fdocente;var reg: docente);
+begin
+	if (not eof(archivo)) then
+		read(archivo,reg)
+	else
+		reg.nom:= valoralto;
+end;
+
+procedure eutanasia(var listadoc:archivo);
+var
+	reg:docente;
+begin
+	assign(listadoc,'archivo');
+	reset(listadoc);
+	Leer(listadoc,reg);
+	while(reg.nom <> valoralto) do begin
+		if (reg.eda >= 65) then
+			reg.cod:= (reg.cod*-1);
+		read(listadoc,reg);
+		end;
+	close(listadoc);
+end;
+
+
+VAR
+	listadoc: archivo;
+	ok:boolean;
+	opcion:integer;
+	doc:docente;
+
+BEGIN
+	assign(listadoc,'Lista de Docentes');
+	rewrite(listadoc);
+	ok:= true;
+	while(ok) do begin
+		creardoc(doc);
+		write(listadoc,doc);
+		write('Ingrese 1 si desea seguir agrengando docentes: ');readln(opcion)
+		if(opcion <> 1) then ok:= false;
+		end;
+	close(listadoc);
+	eutanasia(listadoc);
+	close(listadoc);
+END.
+

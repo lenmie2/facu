@@ -1,0 +1,12 @@
+
+program testo;
+uses
+	hagoAlgo;
+var
+	num: numero;
+begin
+	readln(num);
+	writeln(porDos(num));
+	porTres(num);
+	writeln(num);
+end.

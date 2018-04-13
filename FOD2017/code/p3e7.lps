@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="p3e7.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="3"/>
+        <CursorPos X="18" Y="17"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="p3e7.pas"/>
+        <Caret Line="14" Column="52"/>
+      </Position1>
+      <Position2>
+        <Filename Value="p3e7.pas"/>
+        <Caret Line="12" Column="25" TopLine="3"/>
+      </Position2>
+      <Position3>
+        <Filename Value="p3e7.pas"/>
+        <Caret Line="6" Column="23"/>
+      </Position3>
+      <Position4>
+        <Filename Value="p3e7.pas"/>
+        <Caret Line="10" Column="20" TopLine="2"/>
+      </Position4>
+      <Position5>
+        <Filename Value="p3e7.pas"/>
+        <Caret Line="25" Column="29" TopLine="30"/>
+      </Position5>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

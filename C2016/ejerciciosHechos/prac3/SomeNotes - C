@@ -1,0 +1,26 @@
+SomeNotes - C
+
+1) single vs double quotes 
+	('') identifican un solo char literal(constante)
+		nota: en C un char literal es un int(4b)
+		y no un char(1b)
+
+	("") identifican un string literal(constante), osea que termina en null 
+
+2)un string es un arreglo de char terminados en null(/0), osea que:
+	-las matrices ser leen por filas primero y luego por columna
+	-un arreglo de strings seria una matriz tridimencional o una matriz bidimensional de punteros char
+	-si en un arreglo de punteros intento imprimir mas elementos de los que dimensione, normalmente va a tirar error
+	-cuando declaro arreglo de puntero
+	char *arr3[] ={"uno","dos","tres"};
+	y el espacio entre corchetes esta vacio, el numero de columnas va a ser igual al numero de elementos,
+	si este tiene un numero
+	char *arr4[4]={"uno","dos","tres"};
+	el numero de columnas va a ser el que esta entre corchetes, aunque se asigne solo 3 elementos
+	-un arreglo por punteros declarado con elementos, puede tener cualquier numero de columnas, pero no puede exceder por mucho el numero de filas. si lo hace, probablemente tire error al correr.
+3)C no te deje devolver un arreglo como funcion. Pero te deja devolver un puntero especificando el nombre del arreglo sin un indice
+	int* miFuncion(){
+
+	}
+Segundo punto es que no te puede devolver la direccion de una variable local afuera de una funcion. asi que la variable local tendra que definirse como estatica.
+

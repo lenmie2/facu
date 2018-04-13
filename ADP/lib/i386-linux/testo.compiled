@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1505429304"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -Fu/home/negro/facu/adp/ -FU/home/negro/facu/adp/lib/i386-linux/ testo.pas"/>
+</CONFIG>

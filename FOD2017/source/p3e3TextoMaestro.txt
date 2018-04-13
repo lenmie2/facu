@@ -1,0 +1,15 @@
+001	35
+perez
+juan
+002	70
+suarez
+carla
+003	66
+ramirez
+mabel
+004	45
+fiorelli
+carlos
+005	22
+ramirez
+susana

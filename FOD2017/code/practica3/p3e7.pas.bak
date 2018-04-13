@@ -1,0 +1,51 @@
+program p3e7;
+uses crt,sysutils;
+const
+	rutaDefault = 'D:\facu\fod2017\source\practica3\p3e7';
+{Creo el archivo de longitud variable pasado por parametro. Se generaran registros hasta
+que se ingrese un nombre en blanco}
+procedure crearArchivo(var archivo: file);
+var
+	nombre: string[64];
+begin
+	assign(archivo,rutaDefault+'\archivoPersonas');
+	rewrite(archivo, 1);
+	Write('Ingrese nombre: ');readln(nombre);
+	while (nombre <> '') do begin
+	      blockwrite(archivo,nombre,Length(nombre)+1);
+              Write('Ingrese nombre: ');readln(nombre);
+	end;
+	close(archivo);
+	write('--------- archivo de nombres creado ---------');readln();
+end;
+procedure listarArchivo(var archivo: file); 			//PROBLEMA: COMO HAGO PARA PODER LEER ENTEROS CON ESTE ALGORITMO
+var
+	buffer,longitud:char;
+
+        i:integer;
+        campo: string[64];
+begin
+	assign(archivo,rutaDefault+'\archivoPersonas');
+	reset(archivo,1);
+	while (not eof(archivo)) do begin
+                campo:= '';
+                blockread(archivo, longitud, sizeof(longitud));
+                writeln(ord(longitud));
+                for i:= 1 to (ord(longitud)) do begin
+		    blockread(archivo, buffer, sizeof(longitud));
+                    campo:= campo + buffer;
+                end;
+                writeln(campo);readln();
+
+	end;
+	close(archivo);
+	write('--------- archivo de nombres listado ---------');readln();			
+end;
+
+VAR
+	archivo: file;
+BEGIN
+
+        crearArchivo(archivo);
+	listarArchivo(archivo);
+END.

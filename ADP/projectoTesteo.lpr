@@ -1,0 +1,129 @@
+program listaGenerica;
+  type
+    elemento = integer; //puede variar, pero tiene que se de tipo ordinal
+    
+    lista = ^reg;
+    reg = record
+      ele: elemento;
+      sig: lista;
+    end;
+procedure crearLista(var pri: lista);
+begin
+  pri:= nil;
+end;
+
+procedure recorrerLista(pri: lista);
+var
+  pos:= elemento;
+begin
+  pos:=1;
+  writeln('POSICION        ELEMENTO');
+  while(nue <> nil) do begin
+    writeln(pos,'       'nue^.ele);
+    pri:= pri^.sig;
+    pos:= pos+1;
+  end;
+end;
+
+procedure agregarAtras(var pri: lista; elem: elemento);
+var
+  ult,nue,act: lista;
+begin
+  new(nue);
+  nue^.ele:= elem;
+  nue^.sig:= nil;
+  if(pri <> nil) then begin
+    act:=pri;
+    while(act <> nil)do begin
+      ult:= act;
+      act:= act^.sig;
+    end;
+    ult^.sig:= nue;
+  end
+  else
+    pri:= nue;
+end;
+
+procedure agregarAdelante(var pri: lista; elem: elemento);
+var 
+  nue: lista;
+begin
+  new(nue);
+  nue^.ele:= elem;
+  nue^.sig:= pri;
+  pri:= nue;
+end;
+
+
+procedure intercalar(var pri: lista; elem: elemento);
+var
+  act,nue,ult: lista;
+begin
+  new(nue);
+  nue^.ele:= elem;
+  act:= pri;
+  ant:= pri;
+  while(act <> nil) and (act^.ele < nue^.ele) do begin
+    ant:= act;
+    act:= act^.sig;
+  end;
+  if(act = ant) then pri:= nue; //si es el primer elemento
+  else ant^.sig:= nue; //si encontre, intercalo en el anterior, que es ult
+  nue^.sig:= act; //engancho el posterior, que es nue
+end;
+
+procedure eliminarElemento(var pri: lista; elem: elemento);
+var
+  act, ant: lista;
+begin
+  act:= pri;
+  ant:= pri;
+  while(act <> nil) and(act^.ele <> elem)do begin
+    ant:= act;
+    act:= act^.sig;
+  end;
+  if(act <> nil) then
+    if(act = pri) then pri:= act^.sig //el dato es el primero
+  else
+    ant^.sig:= act^.sig; //enlazo el siguiente del anterior con el siguiente del actual
+  dispose(act);
+end;
+
+procedure elementoEn(pri: lista; var ele:elemento;k:integer);
+    var
+     pos: integer;
+     nue,ult: lista;
+    begin
+     if(pri = nil) then writeln('error, la list ano tiene elementos');
+     else begin
+          pos:= 1;
+          nue:= pri;
+          while(nue <> nil) and (pos < k) do begin
+            pos:= pos+1;
+            nue:= nue^.sig;
+          end;
+          if pos = k) then begin
+            ele:= nue^.ele;
+            writeln('el elemento en ',k,' es: ',ele);
+          end
+          else write('el elemento en ',k,' excede la longitud de la lista');
+     end;
+    end;
+procedure posicionDe(pri:lista;ele: elemento;var pos:lista);
+    var
+     nue,ult: lista;
+    begin
+     if(pri=nil)then writeln('error, lista vacia');
+     else begin
+          nue:= pri;
+       while(nue<>nil) and (ele<>nue^.ele) do
+         nue:= nue^.sig;
+         if(nue<>nil) and (ele=nue^.ele) then pos:= nue;
+         else write('no se encontro');
+       end;
+    end;
+
+
+
+
+

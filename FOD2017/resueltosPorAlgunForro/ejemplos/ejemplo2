@@ -1,0 +1,123 @@
+//Precondiciones del ejemplo//
+	*Ambos archivos (maestro y detalle) estan ordenados por codigos
+	*En el archivo detalle solo aparecen productos que existen en el archivo maestro
+	*Cada producto del maestro puede aparecer, a lo largo del dia vendido mas de una vez, por lo tanto, en el archivo detalle pueden existir varios registros correspondientes al mismo producto
+
+program actualizar;
+const	
+	valoralto = '9999';
+type
+	str4 = string[4];
+	prod = record
+		cod: str4;
+		descripcion: string[30];
+		pu: real;
+		cant: integer;
+	v_prod = record
+		cod: str4;
+		cv: integer;
+		end;
+
+// INICIO procesos creados para que corra el programa
+
+procedure crea_regd(var reg:v_prod);
+begin
+	write('ingrese codigo ');readln(reg.cod);
+	if (reg.cod <> valoralto) then begin
+		write('ingrese cantidad vendida ');readln(reg.cv);
+		write('ingrese codigo ');readln(reg.cod);
+		end;
+end;
+
+procedure crea_regm(var reg:prod);
+begin
+	read (reg.cod);
+	if (reg.cod <> valoralto) then begin
+		write('ingrese descripcion ');readln(reg.descripcion);
+		write('ingrese precio unidad ');readln(reg.pu);
+		write('ingrese cantidad ');readln(reg.cant);
+		end;
+end;
+
+procedure creacion(var mae:maestro; var det:detalle); //para compilar, va a ingresar registros hasta el cod 9999
+
+var
+	regd: v_prod;
+	regm: prod;
+begin
+	writeln('Se va a leer los registros del archivo maestro del inventario de ventas');
+	writeln;
+	crea_regm(regm);
+	while (regm.cod <> valoralto) do begin
+		write(mae,regm);
+	 	crea_regm(regm);
+	 	end;
+	writeln('Se va a leer los registros del archovo detalle de venta diaria')
+	writeln;
+	crea_regd(regd);
+	while(regd.cod <> valoralto) do begin
+		write(det,regd);
+		crea_regd(regd);
+		end;
+end;
+
+// FIN procesos creados para que corra el programa
+
+var
+	regm: prod;
+	regd: v_prod;
+	mae1: maestro;
+	det1: detalle;
+	total: integer;
+
+begin
+	assign (mae1,'maestro');
+	assign (det1,'detalle');
+	reset(mae1,regm);
+	reset(det1,regd);
+	while (not eof(det1)) do begin	
+		read(mae1,regm);
+		read(det1,regd);
+		while(regm.cod <> regd.cod) do 
+			read(mae1,regm);
+		while(regm.cod = regd.cod) do begin
+			regm.cant:= regm.cant-regd.cv;
+			read(det1,regd);
+			end;
+		seek(mae1,filepos(mae1)-1);
+		write(mae1,regm);
+		end;
+end.
+
+///
+
+procedure leer(var archivo detalle;var dato: v_prod);
+	begin
+		if (not eof(archivo)) then 
+			read (archivo,dato);
+		else dato.cod:= valoralto;
+		end;
+	end;
+
+begin
+	assign(mae1,'maestro'); assign (det1,'detalle');
+	reset(mae1); reset(det1);
+	leer(det1,regd);
+				//se procesan todos los archivos de det1//
+	while (regd.cod <> valoralto) do begin
+		read(mae1,regm);
+		while(regm.cod <> regd.cod) do
+			read(mae1,regm);
+				//se procesan codigos iguales//
+			while (regm.cod = regd.cod) do begin
+				regm.cant:= regm.cant - regd.cv;
+				leer(det1,regd);
+				end;
+				// reubico el puntero //
+			seek(mae1,filepos(mae1)-1);
+			write(mae1,regm);
+			end;
+		end;
+end;
+
+	

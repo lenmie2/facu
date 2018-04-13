@@ -1,0 +1,8 @@
+001 50.50 200 100 jabonTocador
+002 50.50 400 100 papelHigienico
+003 50.50 500 200 shampoo
+004 50.50 200 200 aerosol
+005 50.50 100 50 acondicionador
+006 50.50 300 50 cepillo
+007 50.50 100 200 desodorante
+008 50.50 200 400 esponja

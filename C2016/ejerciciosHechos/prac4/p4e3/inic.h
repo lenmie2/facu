@@ -1,0 +1,1 @@
+int ini(int *a)

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm -->
+<html class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?_=1463515787541"></script>
+<!-- Basic -->
+
+<title>C Command Line Arguments</title>
+<meta name="description" content="C Command Line Arguments - Learn ANSI, GNU and K/R standard of C programming language with simple and easy examples covering basic C, language basics, literals, data types, functions, loops, arrays, pointers, structures, input and output, memory management, pre-processors, directives etc.">
+<meta name="keywords" content="C, tutorial, beginners, programming, ANSI, simple, examples, language basics, literals, data types, functions, loops, arrays, pointers, structures, input and output, memory management, pre-processors, directives.">
+<!--<base href="http://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="./C Command Line Arguments_files/script-min-v4.js"></script>
+<link rel="stylesheet" href="./C Command Line Arguments_files/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+.fa-camera:before{content:"\f03d";font-family:FontAwesome;font-style:normal;font-size:100%}
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/cprogramming/images/try-it.jpg) top right no-repeat !important}div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #c96a14 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #c96a14 !important;}
+.submenu-item{ border-bottom: 2px solid #c96a14 !important; border-top: 2px solid #c96a14 !important }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()"><div id="StayFocusd-infobar" style="display: none; top: 1079.33px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img src="./C Command Line Arguments_files/loading-cg.gif" alt="" width="70" height="70">
+   </div>
+</div>
+<header>
+   <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="http://www.tutorialspoint.com/index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="./C Command Line Arguments_files/logo.png">
+      </a>
+      </h1>			
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 1069.3333333333333px!important"> <i class="icon icon-bars"></i> </button>
+      <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="http://www.tutorialspoint.com/index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library  <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="http://www.tutorialspoint.com/codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="http://www.tutorialspoint.com/tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="http://www.tutorialspoint.com/online_dev_tools.htm"><span class="dev-tools-menu">  Tools</span></a></li> 
+            </ul>
+         </nav>
+         <div class="searchform-popup">
+            <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == &#39;Search your favorite tutorials...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search your favorite tutorials...&#39;;}" autocomplete="off">
+            <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+        </div>
+      </div>
+     </div>	
+</div></header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="./C Command Line Arguments_files/c-mini-logo.jpg" alt="CProgramming Tutorial">
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">C Programming Tutorial</li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/index.htm">C - Home</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_overview.htm">C - Overview</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_environment_setup.htm">C - Environment Setup</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_program_structure.htm">C - Program Structure</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_basic_syntax.htm">C - Basic Syntax</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_data_types.htm">C - Data Types</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_variables.htm">C - Variables</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_constants.htm">C - Constants</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_storage_classes.htm">C - Storage Classes</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_operators.htm">C - Operators</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_decision_making.htm">C - Decision Making</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_loops.htm">C - Loops</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_functions.htm">C - Functions</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_scope_rules.htm">C - Scope Rules</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_arrays.htm">C - Arrays</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_pointers.htm">C - Pointers</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_strings.htm">C - Strings</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_structures.htm">C - Structures</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_unions.htm">C - Unions</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_bit_fields.htm">C - Bit Fields</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_typedef.htm">C - Typedef</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_input_output.htm">C - Input &amp; Output</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_file_io.htm">C - File I/O</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_preprocessors.htm">C - Preprocessors</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_header_files.htm">C - Header Files</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_type_casting.htm">C - Type Casting</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_error_handling.htm">C - Error Handling</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_recursion.htm">C - Recursion</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_variable_arguments.htm">C - Variable Arguments</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_memory_management.htm">C - Memory Management</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm" style="background-color: rgb(214, 214, 214);">C - Command Line Arguments</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">C Programming Resources</li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">C -  Questions &amp; Answers</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_quick_guide.htm">C -  Quick Guide</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
+<li><a href="http://www.tutorialspoint.com/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>C - Command Line Arguments</h1>
+<div class="topgooglead"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-7133395778201029" data-ad-slot="8354544120"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/cprogramming/c_memory_management.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>It is possible to pass some values from the command line to your C programs when they are executed. These values are called <b>command line arguments</b> and many times they are important for your program especially when you want to control your program from outside instead of hard coding those values inside the code.</p>
+<p>The command line arguments are handled using main() function arguments where <b>argc</b> refers to the number of arguments passed, and <b>argv[]</b> is a pointer array which points to each argument passed to the program. Following is a simple example which checks if there is any argument supplied from the command line and take action accordingly −</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> argc</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">argv</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">==</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"The argument supplied is %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"Too many arguments supplied.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"One argument expected.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>When the above code is compiled and executed with single argument, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln"> testing
+</span><span class="typ">The</span><span class="pln"> argument supplied </span><span class="kwd">is</span><span class="pln"> testing</span></pre>
+<p>When the above code is compiled and executed with a two arguments, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln"> testing1 testing2
+</span><span class="typ">Too</span><span class="pln"> many arguments supplied</span><span class="pun">.</span></pre>
+<p>When the above code is compiled and executed without passing any argument, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln">
+</span><span class="typ">One</span><span class="pln"> argument expected</span></pre>
+<p>It should be noted that <b>argv[0]</b> holds the name of the program itself and <b>argv[1]</b> is a pointer to the first command line argument supplied, and *argv[n] is the last argument. If no arguments are supplied, argc will be one, and if you pass one argument then <b>argc</b> is set at 2.</p>
+<p>You pass all the command line arguments separated by a space, but if argument itself has a space then you can pass such arguments by putting them inside double quotes "" or single quotes ''. Let us re-write above example once again where we will print program name and we also pass a command line argument by putting inside double quotes −</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> argc</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">argv</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+
+   printf</span><span class="pun">(</span><span class="str">"Program name %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span><span class="pln">
+ 
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">==</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"The argument supplied is %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"Too many arguments supplied.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"One argument expected.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>When the above code is compiled and executed with a single argument separated by space but inside double quotes, it produces the following result.</p>
+<pre class="result notranslate">$./a.out "testing1 testing2"
+
+Progranm name ./a.out
+The argument supplied is testing1 testing2
+</pre>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/cprogramming/c_memory_management.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;http://www.facebook.com/sharer.php?u=&#39; + &#39;http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/facebookIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;http://twitter.com/share?url=&#39; + &#39;http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/twitterIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.linkedin.com/cws/share?url=&#39; + &#39;http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/linkedinIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://plus.google.com/share?url=http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/googlePlusIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;http://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/StumbleUponIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;http://reddit.com/submit?url=http://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=656,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./C Command Line Arguments_files/reddit.jpg" alt="img">
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="http://www.tutorialspoint.com/index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="./C Command Line Arguments_files/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="http://www.tutorialspoint.com/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/faq.htm">FAQ's</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/about_helping.htm">Helping</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>© Copyright 2016. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == &#39;Enter email for newsletter...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Enter email for newsletter...&#39;;}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="./C Command Line Arguments_files/custom-min.js"></script><a class="scroll-to-top visible" href="http://www.tutorialspoint.com/#" id="scrollToTop"><i class="icon icon-chevron-up icon-white"></i></a>
+<script src="./C Command Line Arguments_files/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="./C Command Line Arguments_files/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/cprogramming/try_cprogramming.php');
+   tryit.compile();
+</script><div id="source" style="display:none;"></div><div id="supportsource" style="display:none;"></div><div id="utilsource" style="display:none;"></div><div id="extrasource" style="display:none;"></div><div id="inputs" style="display:none;"></div><div id="filename" style="display:none;"></div>
+
+
+<div class="autocomplete-suggestions " style="top: 1121.33px; left: 0px; width: 0px;"></div><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>

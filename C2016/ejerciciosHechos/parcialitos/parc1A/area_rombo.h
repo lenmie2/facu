@@ -1,0 +1,1 @@
+float area_rombo(float, float);

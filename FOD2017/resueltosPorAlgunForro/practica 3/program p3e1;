@@ -1,0 +1,115 @@
+program p3e1;
+cons
+	str4 = string[4];
+type
+	producto = record
+		head: integer;
+		numr: integer;
+		nomb: str4;
+		cact: integer;
+		cmin: integer;
+		cmax: integer;
+		prec: real;
+		end;
+
+	f_prod = file of producto;
+
+procedure crearproducto(var rmae:producto);
+begin
+	write('Ingrese numero de producto ');readln(rmae.numr);
+	write('Ingrese nombre de producto ');readln(rmae.nomb);
+	write('Ingrese cantidad minima de producto ');readln(rmae.cmin);
+	write('Ingrese cantidad maxima de producto ');readln(rmae.cmax);
+	write('Ingrese precio de producto ');readln(rmae.prec);
+end;
+
+procedure alta(var arch: f_prod);
+var
+	rnue,rmae: producto;
+	i:integer;
+
+begin
+	assign(arch,'productos');
+	reset(arch);
+	crearproducto(rnue);
+	read(arch,rmae);
+	if(rmae.p <> 0) then begin
+		for (rmae.head) to 0 do begin
+			read(arch,rmae)
+		write(arch,rmae)
+		seek(arch,1)
+		rmae.head:=0
+		write(mae,rmae)
+		end
+	else begin
+		while (not eof(arch)) do
+			read(arch,rmae);
+		write(arch,rmae);
+		end;
+	close(arch);
+end;  
+
+procedure baja(var arch:f_prod);
+var
+	pos,baj:integer;
+	rmae:producto;
+begin
+	assign(arch,'productos');
+	reset(arch);
+	pos:= 1;
+	writeln('Ingrese el numero del producto a eliminar: ');readln(baj)
+	read(arch,rmae);
+	while(rmae.nmro <> baj) do begin
+		read(arch,rmae);
+		pos: pos+1;
+		end;
+	pos:= 0-pos;
+	seek(arch,1);
+	rmae.head:= pos;
+	write(arch,mae);
+	close(arch);
+end;
+
+procedure modificar(var arch:f_prod);
+var
+	rmae: producto;
+	nro: integer;
+begin
+	assign(arch,'archivo');
+	reset(arch);
+	write('Ingrese el numero del producto a modificar: ');readln(nro);
+	read(arch,rmae);
+	while (rmae.nmro <> nro) do 
+		read(arch,rmae);
+	crearproducto(rmae);
+	seek(arch,filepos(arch)-1);
+	write(arch,rmae);
+	close(arch),
+end;
+
+VAR
+	rmae,rnue: producto;
+	ListaProductos: f_prod;
+	ok:bookean;
+	opcion:integer;
+BEGIN
+	assign(ListaProductos,'Archivo de Productos');
+	rewrite(ListaProductos);
+	ok:= true;
+	while (ok) do begin
+		crearproducto(rmae);
+		write(ListaProductos,rmae);
+		writeln('Ingrese 1 si desea continuar agregando productos; cualquier otra tecla en caso contrario');
+		readln(opcion); 
+		if (opcion <> 1) then
+			ok:= false;
+		end;
+	writeln('Que Accion desea realizar? 1-alta 2-baja 3-modificacion cualquier otra tecla, finalizara el programa');readln(opcion);
+	if (opcion = 1) then
+		alta(ListaProductos);
+	else if (opcion = 2) then
+		baja(ListaProductos);
+	else if (opcion = 3) then
+		modificar(ListaProductos);
+	close(ListaProductos);
+END.

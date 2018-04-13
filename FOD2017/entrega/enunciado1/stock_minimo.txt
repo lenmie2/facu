@@ -1,0 +1,5 @@
+codigo: 1 precio: 5.050000000000000E+001 Stock Actual : 0 Stock Minimo : 100 nombre:  jabonTocador
+codigo: 4 precio: 5.050000000000000E+001 Stock Actual : 38 Stock Minimo : 200 nombre:  aerosol
+codigo: 5 precio: 5.050000000000000E+001 Stock Actual : 0 Stock Minimo : 50 nombre:  acondicionador
+codigo: 7 precio: 5.050000000000000E+001 Stock Actual : 34 Stock Minimo : 200 nombre:  desodorante
+codigo: 8 precio: 5.050000000000000E+001 Stock Actual : 116 Stock Minimo : 400 nombre:  esponja

@@ -1,1 +1,0 @@
-|pc|pc:= PatrolCouple newWithPatrol: p1 sniper: p2.pc reset.pc patrol brushDown .pc regularPatrol 

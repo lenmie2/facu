@@ -1,0 +1,5 @@
+1 50 40	es una fruta roja re piola
+2 40 50	no me gusta mucho la lechuga
+3 50 40	aguante la lenteja vieja
+4 40 50	hace banda no como estas mierdas verdes
+5 50 40	aguante el huevo vieja

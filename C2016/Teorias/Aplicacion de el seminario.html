@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://catedra_c.gitlab.io/teoria/#/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<title>Slides</title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="generator" content="reveal-ck 3.3.0">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="./Aplicacion de el seminario_files/reveal.css">
+<link rel="stylesheet" href="./Aplicacion de el seminario_files/solarized.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="./Aplicacion de el seminario_files/zenburn.css">
+
+<link rel="stylesheet" href="./Aplicacion de el seminario_files/reveal-ck.css">
+
+<link rel="stylesheet" href="./Aplicacion de el seminario_files/custom.css">
+
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script><link rel="stylesheet" type="text/css" href="./Aplicacion de el seminario_files/paper.css">
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+  </head>
+
+  <body style="transition: -webkit-transform 0.8s ease;"><div id="StayFocusd-infobar" style="display:none;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+    <div class="reveal default center" role="application" data-transition-speed="default" data-background-transition="fade">
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides" style="width: 960px; height: 700px; zoom: 0.801;">
+    <section style="top: 211.5px; display: block;" class="present">
+
+<h2>Seminario de Lenguajes</h2>
+
+<h3>Opción C</h3>
+
+</section>
+<section style="top: 0px; display: block;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: block;" class="" aria-hidden="true">
+
+<h1>La cátedra</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 116px; display: block;" hidden="">
+
+<h2>Profesores</h2>
+
+<ul>
+<li>Ana Paola Amadeo
+
+<ul>
+<li><a href="mailto:pamadeo@info.unlp.edu.ar">pamadeo@info.unlp.edu.ar</a></li>
+</ul>
+</li>
+<li>Christian A. Rodriguez
+
+<ul>
+<li><a href="mailto:car@info.unlp.edu.ar">car@info.unlp.edu.ar</a></li>
+<li><a href="https://twitter.com/car_unlp">@car_unlp</a></li>
+<li><a href="https://github.com/chrodriguez">https://github.com/chrodriguez</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 185px; display: none;" hidden="">
+
+<h2>Jefes de Trabajos Prácticos</h2>
+
+<ul>
+<li>Andrés Barbieri</li>
+<li>Fernando López</li>
+<li>Nahuel Cuesta Luengo</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Ayudantes</h2>
+
+<ul>
+<li>Adán Mauri Ungaro</li>
+<li>Carina Girón</li>
+<li>Damián Rubio</li>
+<li>Federico Tello Gentile</li>
+<li>Javier Benitez</li>
+<li>Emilia Corrons</li>
+<li>Natalia Aparicio</li>
+<li>Rosario Santa Marina</li>
+<li>Valentín Mari</li>
+<li>Valeria Soria</li>
+</ul>
+
+</section>
+</section>
+<section style="top: 172.5px; display: block;" class="future" hidden="" aria-hidden="true">
+
+<h1>Contacto</h1>
+
+<ul>
+<li><a href="https://catedras.info.unlp.edu.ar/">https://catedras.info.unlp.edu.ar</a></li>
+<li><a href="mailto:lenguajec@info.unlp.edu.ar">lenguajec@info.unlp.edu.ar</a></li>
+</ul>
+
+</section>
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Horarios</h1>
+
+</section>
+<section class="future" style="top: 94.5px; display: none;" hidden="" aria-hidden="true">
+
+<h2>Horarios de Teoría</h2>
+
+<ul>
+<li>
+<strong>Turno Tarde</strong>
+
+<ul>
+<li>Lunes de 15:30hs a 17:30 Aula 1-1</li>
+</ul>
+</li>
+<li>
+<strong>Turno Mañana</strong>
+
+<ul>
+<li>Martes de 9:30hs a 11:30hs Aula 1-1</li>
+</ul>
+</li>
+</ul>
+
+<p class="fragment" data-fragment-index="0">
+<em>  Los alumnos optarán el turno al que asistirán según su disponibilidad horaria </em>
+</p>
+
+</section>
+<section class="future" style="top: 185px; display: none;" hidden="" aria-hidden="true">
+
+<h2>Horarios de Práctica</h2>
+
+<ul>
+<li>Martes de 8:00hs a 9:30hs Aula 1-1</li>
+<li>Miércoles 13:30 a 15:00 Sala de PC</li>
+<li>Viernes de 11:30hs a 13:30hs Aula 1-1</li>
+</ul>
+
+</section>
+</section>
+<section style="top: 118.5px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Bibliografía</h2>
+
+<ul>
+<li>El Lenguaje C. Kernighan &amp; Ritchie</li>
+<li>C con ejemplos. Perry, Greg</li>
+<li>Efficient C programming. Weiss, Mark Allen</li>
+<li>C in a nutshell. Prinz, Peter
+<p class="fragment" data-fragment-index="0">
+<a href="http://catalogo.info.unlp.edu.ar/">http://catalogo.info.unlp.edu.ar</a>
+</p>
+</li>
+</ul>
+
+</section>
+<section style="top: 34.5px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Modo de aprobación</h2>
+
+<p class="fragment" style="text-align: left;" data-fragment-index="0">
+La <strong>aprobación de la cursada</strong> estará dada por la aprobación de cuatro evaluaciones
+en máquina presenciales:
+</p>
+
+<ul>
+<li class="fragment" data-fragment-index="1">Si se aprueban las cuatro evaluaciones no se rinde parcial integrador</li>
+<li class="fragment" data-fragment-index="2">Cada evaluación desaprobada se rendirá como un tema en el parcial
+integrador</li>
+<li class="fragment" data-fragment-index="3">Puede no aprobarse ninguna evaluación, siendo necesario rendir el parcial
+integrador completo</li>
+<li class="fragment" data-fragment-index="4">TP integrador individual defendible en un coloquio</li>
+</ul>
+
+</section>
+<section style="top: 94.5px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Aprobación de la materia</h2>
+
+<ul>
+<li>La <strong>aprobación de la materia</strong> estará dada por la aprobación de la Cursada</li>
+<li>Con ella se obtiene un <strong>6 (seis)</strong>
+</li>
+</ul>
+
+<p><em>Si se desea mejorar la nota se podrá realizar una extensión del trabajo 
+realizado en la cursada. La nota final se promediará con
+el desempeño durante la cursada</em></p>
+
+</section>
+<section style="top: 219px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h1>Clase 1</h1>
+
+</section>
+<section style="top: 115px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Temario</h2>
+
+<ul>
+<li>Historia de C</li>
+<li>Características generales</li>
+<li>Compilación de un programa</li>
+<li>Tipos de datos</li>
+<li>Variables</li>
+<li>Operadores</li>
+</ul>
+
+</section>
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Historia de C</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 45px; display: none;" hidden="">
+
+<h2>Un poco de historia</h2>
+
+<ul>
+<li>Desarrollador entre 1969/1973 por Dennis Ritchie </li>
+<li>A fines de 1974 fue utilizado para reimplementar el sistema operativo Unix </li>
+<li>En 1980 ANSI comenzó la estandarización del lenguaje</li>
+<li>A partir de 1990, ISO adopta ANSI C en el estándar conocido como C89/C90</li>
+<li>A fines de los '90s, se revisa el estándar y surge C99 que incorpora nuevas
+características que fueron revolucionarias</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 71px; display: none;" hidden="">
+
+<h2>Quiénes lo utilizan</h2>
+
+<ul>
+<li>Nuevos lenguajes mantienen expresiones similares en su sintaxis, como
+por ejemplo: C++, PERL, Javascript, Java, PHP, entre otros.</li>
+<li>En el desarrollo de sistemas operativos, bases de datos, juegos,
+compiladores, nuevos lenguajes, etc.</li>
+</ul>
+
+<p class="fragment" data-fragment-index="0">
+<em>Además, programar en C, motiva la adopción de buenas prácticas de programación</em>
+</p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Características</h2>
+
+<ul>
+<li>Combina elementos de alto nivel con características de bajo nivel</li>
+<li>Es un lenguaje pequeño, con una sintaxis simple</li>
+<li>Es orientado a expresiones</li>
+<li>Es base de lenguajes modernos</li>
+<li>Código <em>"portable"</em>
+</li>
+<li>Extensible mediante el uso de librerías</li>
+<li>Contempla sólo tipos de datos básicos</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Características</h2>
+
+<ul>
+<li>No es orientado a objetos</li>
+<li>No es un lenguaje de bajo nivel</li>
+<li>No provee primitivas de entrada salida</li>
+<li>No realiza comprobación de errores en tiempo de ejecución</li>
+</ul>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 138px; display: none;" class="" aria-hidden="true">
+
+<h1>Proceso de compilación</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 64px; display: none;" hidden="">
+
+<h2>Hola mundo!</h2>
+
+<p>Asumiendo el archivo se llama <code>hola_mundo.c</code></p>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main() 
+{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hola Mundo\n"</span>);
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>);
+}
+</code></pre>
+<pre><code class="bash hljs ">$ gcc hola_mundo.c -o hola_mundo -Wall
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/01-hello-world.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 145px; display: none;" hidden="">
+
+<h2>Fases en la creación de un programa</h2>
+
+<p><img src="./Aplicacion de el seminario_files/01 - Fases de compilacion.svg" alt="Fases de compilación"></p>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Tipos de datos</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 21px; display: none;" hidden="">
+
+<h2>Tipos de datos</h2>
+
+<ul>
+<li>Definen la representación interna de una variable y un conjunto de valores
+posibles.</li>
+<li>La definición original de C era sumamente permisiva respecto de las
+conversiones de tipos
+
+<ul>
+<li>Actualmente se requiere una adecuada declaración y conversión explícita</li>
+</ul>
+</li>
+<li>Tipos de datos en C:
+
+<ul>
+<li>
+<strong>Básicos:</strong> caracteres, enteros y números de punto flotante, punteros. </li>
+<li>
+<strong>Derivados:</strong> arreglos, estructuras y uniones. </li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 98px; display: none;" hidden="">
+
+<h2>Tipos de datos básicos</h2>
+
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th style="text-align: left">Descripción</th>
+<th style="text-align: right">32bits</th>
+<th style="text-align: right">64bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char</code></td>
+<td style="text-align: left">caracter</td>
+<td style="text-align: right">8</td>
+<td style="text-align: right">8</td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td style="text-align: left">entero corto con signo</td>
+<td style="text-align: right">16</td>
+<td style="text-align: right">16</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td style="text-align: left">entero con signo</td>
+<td style="text-align: right">32</td>
+<td style="text-align: right">32</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td style="text-align: left">entero largo con signo</td>
+<td style="text-align: right">32</td>
+<td style="text-align: right">64</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Tipos de datos básicos</h2>
+
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th style="text-align: left">Descripción</th>
+<th style="text-align: right">32bits</th>
+<th style="text-align: right">64bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td style="text-align: left">flotante simple</td>
+<td style="text-align: right">32</td>
+<td style="text-align: right">32</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td style="text-align: left">flotante doble</td>
+<td style="text-align: right">64</td>
+<td style="text-align: right">64</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td style="text-align: left">puntero a una posición de memoria</td>
+<td style="text-align: right">32</td>
+<td style="text-align: right">64</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td style="text-align: left">idem <code>char</code>. Empleado para tipos genéricos</td>
+<td style="text-align: right">-</td>
+<td style="text-align: right">-</td>
+</tr>
+</tbody>
+</table>
+
+<p class="fragment" data-fragment-index="0">
+<em>No existe el tipo boolean</em>
+</p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Punto Flotante</h2>
+
+<p>La expresión:</p>
+<pre><code class="c hljs "><span class="hljs-number">3.45</span> – <span class="hljs-number">1.2e+34</span>
+</code></pre>
+<p>Significa <strong>3.45 - (1.2*10<sup>34</sup>)</strong></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Enteros</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">Base</th>
+<th style="text-align: right">Representación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">Decimal</td>
+<td style="text-align: right">14</td>
+</tr>
+<tr>
+<td style="text-align: left">Hexadecimal</td>
+<td style="text-align: right">0xE</td>
+</tr>
+<tr>
+<td style="text-align: left">Octal</td>
+<td style="text-align: right">016</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Enteros</h2>
+
+<h3>Calificadores o modificadores</h3>
+
+<p>Determinan si el entero es con signo, corto o largo:</p>
+
+<table>
+<thead>
+<tr>
+<th>Literal</th>
+<th style="text-align: center">Representación</th>
+<th style="text-align: center">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>23L</code></td>
+<td style="text-align: center">decimal</td>
+<td style="text-align: center"><code>23 long int</code></td>
+</tr>
+<tr>
+<td><code>23LU</code></td>
+<td style="text-align: center">decimal</td>
+<td style="text-align: center"><code>23 unsigned long int</code></td>
+</tr>
+<tr>
+<td><code>023LU</code></td>
+<td style="text-align: center">octal</td>
+<td style="text-align: center"><code>19 unsigned long int</code></td>
+</tr>
+<tr>
+<td><code>0XFUL</code></td>
+<td style="text-align: center">hexadecimal</td>
+<td style="text-align: center"><code>15 unsigned long int</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/02-0xful.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Char</h2>
+
+<ul>
+<li>Permiten representar letras mayúsculas, minúsculas, números de 0 a 9, signos de
+puntuación, no imprimibles, etc.</li>
+<li>Se manejan como <code>char</code> o <code>int</code> (valor <a href="http://ascii.cl/es">ASCII</a>) de forma indistinta</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Char</h2>
+
+<h3>Las comillas</h3>
+
+<ul>
+<li>
+<strong>Comilla simple:</strong> usada para un char</li>
+<li>
+<strong>Comilla doble:</strong> usada para un string</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Char</h2>
+
+<h3>Ejemplos</h3>
+
+<table>
+<thead>
+<tr>
+<th><code>char</code></th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'A'</code></td>
+<td>Letra A mayúscula</td>
+</tr>
+<tr>
+<td><code>'\n'</code></td>
+<td>Salto de linea. Equivale a <code>'\x0A'</code>
+</td>
+</tr>
+<tr>
+<td><code>'\0'</code></td>
+<td>Fin de string o <code>NULL</code> o cero</td>
+</tr>
+<tr>
+<td><code>'\x0A'</code></td>
+<td>Idem <code>'\n'</code> en hexadecimal</td>
+</tr>
+<tr>
+<td><code>'\012'</code></td>
+<td>Idem <code>'\n'</code> en octal</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes literales: Char</h2>
+
+<h3>Los strings</h3>
+
+<ul>
+<li>Los strings se representan con <strong>comillas dobles</strong>.</li>
+<li>Por ello, <strong><code>'A'</code> no es lo mismo que "A"</strong>
+</li>
+<li>El string "A" es un arreglo con los siguientes elementos: <code>['A','\0']</code>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Constantes enumerativas: Enum</h2>
+
+<p>Se utilizan para enumerar una lista de valores constantes</p>
+<pre><code class="c hljs "><span class="hljs-keyword">enum</span> estado_civil {casado, soltero, viudo, separado, divorciado, NSNC,
+estado_civil_TOPE };
+
+<span class="hljs-keyword">enum</span> meses { ENE=<span class="hljs-number">1</span>, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SEP, OCT, NOV, DIC,
+meses_TOPE };
+
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/03-enum-sample.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Punteros</h2>
+
+<ul>
+<li>Representan una variable que apunta a otra</li>
+<li>Contienen la dirección de memoria de otra variable</li>
+<li>Un puntero consta de dos partes:
+
+<ul>
+<li>La dirección apuntada</li>
+<li>El contenido apuntado.</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h3>Conceptos del manejo de memoria</h3>
+
+<ul>
+<li>Cada posición de memoria:
+
+<ul>
+<li>Almacena un byte</li>
+<li>Es accesible mediante una dirección específica</li>
+</ul>
+</li>
+<li>Las direcciones de memoria son consecutivas</li>
+<li>Dependiendo del tipo de memoria al que apunte un puntero, la
+memoria se accederá a todos los bytes que representen ese tipo.</li>
+<li>Los programas comparten el espacio de direcciones con el sistema operativo</li>
+<li>Los datos del programa y el programa se almacenan en memoria al ser ejecutados</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h3>Distribución de la memoria</h3>
+
+<ul>
+<li>La memoria de un programa en ejecución se organiza en segmentos
+
+<ul>
+<li>
+<strong>Text segment:</strong> código compilado  del programa</li>
+<li>
+<strong>Stack segment:</strong> almacena <em>variables automáticas</em> declaradas en funciones</li>
+<li>
+<strong>Heap segment:</strong> almacena <em>datos dinámicos</em>
+</li>
+</ul>
+</li>
+</ul>
+
+<p><img src="./Aplicacion de el seminario_files/02-memory-segments.svg" alt="Fases de compilación"></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h3>Distribución de la memoria</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> x;        <span class="hljs-comment">/* Variable global */</span>
+
+<span class="hljs-keyword">int</span> main() {
+
+  <span class="hljs-keyword">int</span> y;      <span class="hljs-comment">/* Variable automatica */</span>
+
+  <span class="hljs-keyword">char</span> *str;  <span class="hljs-comment">/* Variable automatica cuyo valor es la posición
+               * de memoria de otra variable
+               */</span>
+
+  str = <span class="hljs-built_in">malloc</span>(<span class="hljs-number">50</span>); <span class="hljs-comment">/* Es en esta instancia donde se aloca memoria
+                     * en la heap 
+                     */</span>
+  ...
+}
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Esquema de memoria</h2>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> main( ) {
+
+  <span class="hljs-keyword">int</span> v_entero;
+  <span class="hljs-keyword">int</span> *p;
+  v_entero = <span class="hljs-number">7</span>;
+  p = &amp;v_entero;
+  ...
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Esquema de memoria: gráfico</h2>
+
+<table>
+<tbody><tr>
+<td class="fragment" data-fragment-index="0">
+<img src="./Aplicacion de el seminario_files/03-memory-alignement-00.svg">
+</td>
+<td class="fragment" data-fragment-index="1">
+<img src="./Aplicacion de el seminario_files/03-memory-alignement-01.svg">
+</td>
+<td class="fragment" data-fragment-index="2">
+<img src="./Aplicacion de el seminario_files/03-memory-alignement-02.svg">
+</td>
+</tr>
+</tbody></table>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Variables</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 113.5px; display: none;" hidden="">
+
+<h2>Variables</h2>
+
+<ul>
+<li>Representa una posición de memoria que se le asigna un nombre y posee un cierto tipo de
+datos</li>
+<li>Se usa en expresiones para realizar cálculos</li>
+<li>Deben ser declaradas antes de ser utilizadas.</li>
+<li>El operador <code>&amp;</code> permite acceder a la dirección de la variable</li>
+<li>Son sensibles a mayúsculas y minúsculas</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="">
+
+<h2>Variables: inicialización</h2>
+
+<p>Es posible realizar la incialización en la declaración</p>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">9</span>;
+<span class="hljs-keyword">int</span> j, x = <span class="hljs-number">12</span>;
+<span class="hljs-keyword">int</span> j = <span class="hljs-number">12</span>, x;
+<span class="hljs-keyword">char</span> c = <span class="hljs-string">'x'</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> x = <span class="hljs-number">12</span>;
+<span class="hljs-keyword">char</span> c, linea[<span class="hljs-number">80</span>];
+<span class="hljs-keyword">char</span> nombre[] = <span class="hljs-string">"Juan"</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> mensaje[] = <span class="hljs-string">"Saludos!!"</span>;
+</code></pre>
+<p class="fragment" data-fragment-index="0">
+<em>Recordar que las últimas dos cadenas son arreglos de <strong>char</strong> terminadas en
+<strong>'\0'</strong></em>
+</p>
+<pre class="fragment" data-fragment-index="1"><code class="c hljs ">
+[<span class="hljs-string">'J'</span>,<span class="hljs-string">'u'</span>,<span class="hljs-string">'a'</span>,<span class="hljs-string">'n'</span>,<span class="hljs-string">'\0'</span>]
+[<span class="hljs-string">'S'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'u'</span>, <span class="hljs-string">'d'</span>, <span class="hljs-string">'o'</span>, <span class="hljs-string">'s'</span>, <span class="hljs-string">'!'</span>, <span class="hljs-string">'!'</span>, <span class="hljs-string">'\0'</span>]
+</code>
+</pre>
+
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Conversiones de tipos</h2>
+
+<ul>
+<li>Es posible <em>mezclar</em> tipos de datos en una expresión:
+
+<ul>
+<li>
+<strong>Conversiones explícitas:</strong> <code>(tipo) expresion</code>
+</li>
+<li>
+<strong>Conversiones implícitas:</strong> <code>lvalue = rvalue</code>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Conversiones implícitas</h2>
+
+<ul>
+<li>De <code>int</code> a <code>char</code> se eliminan los bits de orden superior</li>
+<li>De <code>float</code> a <code>int</code> se trunca la parte fraccionaria</li>
+<li>De <code>double</code> a <code>float</code> se aplica redondeo</li>
+<li>Los enteros de mayor magnitud (como <code>long</code>) se convierten en <code>short</code> o en <code>char</code>
+eliminando los bits de orden superior</li>
+</ul>
+
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/04-cast-conversion.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Conversiones implícitas: Reglas</h2>
+
+<ul>
+<li>Si cualquier operando es <code>long double</code>, se convierte el otro a <code>long double</code>
+</li>
+<li>De otra manera, si cualquier operando es <code>double</code>, se convierte el otro a <code>double</code>
+</li>
+<li>De otra manera, si cualquier operando es <code>float</code>, se convierte el otro a <code>float</code>
+</li>
+<li>De otra manera, si cualquier operando es <code>long</code>, se convierte el otro a <code>long</code>
+</li>
+<li>De otra manera, si cualquier operando es <code>int</code>, se convierte el otro a <code>int</code>
+</li>
+<li>Finalmente, se convierte <code>char</code> a <code>short</code>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Conversiones implícitas: Ejemplo</h2>
+
+<p>Asumiendo el siguiente código</p>
+<pre><code class="c hljs ">  <span class="hljs-keyword">int</span> x = <span class="hljs-number">64</span>, y = <span class="hljs-number">357</span>;
+  <span class="hljs-keyword">float</span> f = <span class="hljs-number">4.95</span>;
+  <span class="hljs-keyword">char</span> c;
+  c = x;
+  x = c;
+  c = y;
+  y = c;
+  y = f;
+</code></pre>
+<p class="fragment" data-fragment-index="0">
+¿Con qué valores quedan <strong>x, y, f, c</strong>?
+</p>
+
+<p><small class="fragment" data-fragment-index="1">
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/05-implicit-conversion.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Operadores</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 22px; display: none;" hidden="">
+
+<h2>Operadores</h2>
+
+<ul>
+<li>Son elementos del lenguaje que se aplican a variables o literales en una
+expresión:
+
+<ul>
+<li>
+<strong>Asignación:</strong> <code>=</code> retorna el valor asignado, de forma tal de permitir
+asignaciones encadenadas</li>
+<li>
+<strong>Operadores artiméticos:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>
+</li>
+<li>
+<strong>Operadores lógicos:</strong> <code>&amp;&amp;</code>, <code>||</code> <code>!</code>
+</li>
+<li>
+<strong>Operadores relacionales:</strong> <code>==</code>, <code>!=</code>,<code>&lt;</code>, <code>&gt;</code>,<code>..</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<p class="fragment highlight-red" data-fragment-index="0">
+Cualquier valor distinto de 0 (cero) es <strong>VERDADERO</strong>.  El 0 (cero) es <strong>FALSO</strong>
+</p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 124px; display: none;" hidden="">
+
+<h2>Operadores: errores</h2>
+
+<p>Es común usar de forma equivocada el símbolo <code>=</code> como comparación</p>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">3</span>;
+
+<span class="hljs-keyword">if</span> ( x = <span class="hljs-number">3</span> ) <span class="hljs-comment">/* siempre será true */</span>
+
+<span class="hljs-keyword">if</span> ( x == <span class="hljs-number">3</span> ) <span class="hljs-comment">/* Uso correcto */</span>
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Operadores: asignación</h2>
+
+<p>Se definen los operadores <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, etc</p>
+
+<p>Permiten realizar una asignación <em>comprimida</em></p>
+<pre><code class="c hljs ">
+x += <span class="hljs-number">6</span>;  <span class="hljs-comment">/* equivale a x = x + 6  */</span>
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Operadores: pre/post-incremento</h2>
+
+<p>Permiten incrementar/decrementar una variable en 1</p>
+
+<p>Puede ser en forma prefija o postfija:</p>
+<pre><code class="c hljs ">
+x++;
+
+++x;
+
+<span class="hljs-comment">/*  Ambos equivalen a x = x + 1 */</span>
+</code></pre>
+<p>¿Con qué valores quedan?</p>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>, x, y;
+
+x = ++n;
+
+y = n++;
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/06-pre-post-operator.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Más operadores</h2>
+
+<p>El operador condicional <strong>if then else: <code>_?_:_</code></strong></p>
+<pre><code class="c hljs ">
+e1 ? e2 : e3
+
+</code></pre>
+<p>El operador <code>sizeof</code> que devuelve el tamaño de un tipo o variable</p>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> x=<span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">sizeof</span>(x);
+
+<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>);
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/07-sizeof-types.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Operadores para manipular bits</h2>
+
+<ul>
+<li>
+<code>&amp;</code> (AND), <code>|</code> (OR), <code>^</code> (OR exclusivo), <code>&lt;&lt;</code>, <code>&gt;&gt;</code> (desplazamientos de bits a derecha o
+izquierda), <code>~</code>(complemento a 1)</li>
+<li>No se aplican a operandos del tipo float o double</li>
+<li>No se debe confundir con los operadores lógicos <code>&amp;&amp;</code> y con <code>||</code>
+</li>
+</ul>
+
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/01/08-masq.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Operadores: precedencia</h2>
+
+<ul>
+<li><code>() [] -&gt;</code></li>
+<li><code>! ~  ++ -- - (tipo) * &amp; sizeof</code></li>
+<li><code>* / %</code></li>
+<li><code>+ -</code></li>
+<li><code>&lt;&lt; &gt;&gt;</code></li>
+<li><code>== !=</code></li>
+</ul>
+
+<p><small>
+continúa...
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+
+<h2>Operadores: precedencia</h2>
+
+<ul>
+<li><code>&amp;</code></li>
+<li><code>^</code></li>
+<li><code>|</code></li>
+<li><code>&amp;&amp;</code></li>
+<li><code>||</code></li>
+<li><code>?</code></li>
+<li><code>= += -= *= /=</code></li>
+<li><code>,</code></li>
+</ul>
+
+</section>
+</section>
+<section style="top: 219px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h1>Clase 2</h1>
+
+</section>
+<section style="top: 137.5px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Temario</h2>
+
+<ul>
+<li>Estructuras de control
+
+<ul>
+<li>Sentencias compuestas</li>
+<li>Condicional simple</li>
+<li>Switch</li>
+<li>Iteraciones</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 138px; display: none;" class="" aria-hidden="true">
+
+<h1>Estructuras de control</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 185px; display: none;" hidden="">
+
+<h2>Estructuras de control</h2>
+
+<ul>
+<li>Gobiernan la ejecución de un programa</li>
+<li>Permiten repetir código o saltear algún conjunto de sentencias.</li>
+</ul>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Sentencias compuestas</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 31.5px; display: none;" hidden="">
+
+<h2>Sentencias compuestas</h2>
+
+<ul>
+<li>También llamadas bloques</li>
+<li>Suelen ser parte de otras estructuras como <code>if</code>, <code>for</code> , <code>while</code>, etc</li>
+<li>Consiste de varias sentencias encerradas entre llaves <code>{ }</code>
+</li>
+<li>No terminan con <code>;</code>
+</li>
+</ul>
+<pre><code class="c hljs ">{
+  <span class="hljs-keyword">int</span> x = <span class="hljs-number">12</span>;
+  y = x*<span class="hljs-number">2</span>;
+}
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/02/01-block.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Condicional simple</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 64.5px; display: none;" hidden="">
+
+<h2>Condicional simple: if</h2>
+<pre><code class="c hljs "><span class="hljs-keyword">if</span> (condicion) {
+  sentencias_verdad
+} <span class="hljs-keyword">else</span> {
+  sentencias_falso
+}
+</code></pre>
+<h3>Ejemplo</h3>
+<pre><code class=" hljs r"><span class="hljs-keyword">if</span> (x == <span class="hljs-number">3</span>) {
+  <span class="hljs-keyword">...</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">...</span>
+}
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 0px; display: none;" hidden="">
+
+<h2>Buenas prácticas</h2>
+
+<h3>En vez de....</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">if</span> (x != <span class="hljs-number">0</span>) {
+...
+}
+
+<span class="hljs-keyword">if</span> (x == <span class="hljs-number">0</span>) {
+...
+}
+</code></pre>
+<div class="fragment" data-fragment-index="0">
+<h3> Usar... </h3>
+
+<pre><code class="c hljs ">
+<span class="hljs-keyword">if</span> (x) {
+...
+}
+
+<span class="hljs-keyword">if</span> (!x) {
+...
+}
+</code>
+</pre>
+</div>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="" aria-hidden="true">
+
+<h1>Condicional compuesto</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 169.5px; display: none;" hidden="">
+
+<h2>Condicional compuesto: switch</h2>
+<pre><code class="c hljs "><span class="hljs-keyword">switch</span> (expresión) {
+  <span class="hljs-keyword">case</span> expresion-constante: sentencias
+  <span class="hljs-keyword">case</span> expresion-constante: sentencias
+  <span class="hljs-keyword">case</span> expresion-constante: sentencias
+  <span class="hljs-keyword">default</span>: sentencias
+}
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 10.5px; display: none;" hidden="">
+
+<h3>Ejemplo</h3>
+<pre><code class="c hljs ">...
+<span class="hljs-keyword">switch</span> (letra) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'a'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'e'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'i'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'o'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'u'</span>:
+    vocMin++;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'A'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'E'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'I'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'O'</span>: <span class="hljs-keyword">case</span> <span class="hljs-string">'U'</span>:
+    vocMay++;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+    otros++;
+    <span class="hljs-keyword">break</span>;
+}
+...
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/02/02-switch.c">Descargar ejemplo</a>
+</small></p><div class="fragment" data-fragment-index="0"><small>
+El ejemplo lee las palabras como argumentos al programa
+</small></div><small>
+</small><p></p>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 219px; display: none;" class="past" hidden="" aria-hidden="true">
+
+<h1>Iteraciones</h1>
+
+</section>
+<section class="past" style="top: 18px; display: none;" hidden="" aria-hidden="true">
+
+<h2>Iteraciones: while</h2>
+<pre><code class="c hljs "><span class="hljs-keyword">while</span> (expresión)
+  sentencias
+</code></pre>
+<h3>Ejemplo</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> suma=<span class="hljs-number">0</span>,n=<span class="hljs-number">10</span>;
+<span class="hljs-keyword">while</span> (n--) {
+  suma += n;
+  ....
+}
+
+<span class="hljs-comment">/* Similar a 
+while (n) {
+  n = n - 1;
+  suma = suma + n;
+  ...
+*/</span>
+</code></pre>
+</section>
+<section class="past" style="top: 10px; display: none;" hidden="" aria-hidden="true">
+
+<h2>Iteraciones: do while</h2>
+<pre><code class="c hljs "><span class="hljs-keyword">do</span>
+  sentencias
+<span class="hljs-keyword">while</span> (expresión)
+</code></pre>
+<h3>Ejemplo</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> sumo = <span class="hljs-number">0</span>, n = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">do</span>
+  sumo += n
+<span class="hljs-keyword">while</span> (n--);
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/02/03-do-while.c">Descargar ejemplo</a>
+</small></p><div class="fragment" data-fragment-index="0"><small>
+El ejemplo retorna el valor calculado. Este valor puede verse con <code>echo $?</code>
+</small></div><small>
+</small><p></p>
+
+</section>
+<section class="past" style="top: 33px; display: none;" hidden="" aria-hidden="true">
+
+<h2>Iteraciones: for</h2>
+
+<h3>El for siguiente...</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">for</span> (expresión1; expresión2; expresión3)
+  sentencias;
+</code></pre>
+<div class="fragment" data-fragment-index="0">
+<h3> Equivale a...</h3>
+<pre><code class="c hljs ">
+expresión1;
+<span class="hljs-keyword">while</span> (expresión2) {
+  sentencias;
+  expresión3
+}
+</code>
+</pre>
+</div>
+
+</section>
+<section class="" style="top: 0px; display: none;" aria-hidden="true">
+
+<h2>Iteraciones: for</h2>
+
+<h3>Versión 1</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> suma=<span class="hljs-number">0</span>,n;
+<span class="hljs-keyword">for</span>( n=<span class="hljs-number">1</span>; n &lt;=<span class="hljs-number">10</span>;n++)
+  suma+=n;
+</code></pre>
+<h3>Versión 2</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> suma=<span class="hljs-number">0</span>, n=<span class="hljs-number">5</span>;
+<span class="hljs-keyword">for</span>( ; n &lt;=<span class="hljs-number">10</span>;suma+=n, n++);
+</code></pre>
+<h3>Versión 3</h3>
+<pre><code class="c hljs "><span class="hljs-keyword">int</span> suma=<span class="hljs-number">0</span>, n=<span class="hljs-number">1</span>;
+<span class="hljs-keyword">for</span>( ; n &lt;=<span class="hljs-number">10</span>; ) {
+  suma+=n;
+  n++;
+}
+</code></pre>
+</section>
+</section>
+<section style="top: 219px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h1>Clase 3</h1>
+
+</section>
+<section style="top: 185px; display: none;" class="future" hidden="" aria-hidden="true">
+
+<h2>Temario</h2>
+
+<ul>
+<li>Estructura de un programa</li>
+<li>Funciones y prototipos</li>
+<li>Entrada / Salida</li>
+</ul>
+
+</section>
+<section style="top: 0px; display: none;" class="stack future" data-previous-indexv="0" hidden="" aria-hidden="true">
+<section style="top: 138px; display: none;" class="" aria-hidden="true">
+
+<h1>Estructura de un programa</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 113.5px; display: none;" hidden="">
+
+<h2>Estructura de un programa</h2>
+
+<ul>
+<li>Conjunto de funciones disjuntas</li>
+<li>No hay anidamiento de funciones</li>
+<li>Función <code>main()</code>
+</li>
+<li>Prototipos</li>
+<li>Compilación separada
+
+<ul>
+<li>Archivos .c y .h</li>
+</ul>
+</li>
+</ul>
+
+</section>
+</section>
+
+<section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
+<section style="top: 219px; display: none;">
+
+<h1>Funciones y prototipos</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 63.5px; display: none;">
+
+<h2>Funciones en C</h2>
+<pre><code class="c hljs ">
+tipo_retornado nombre_función(lista de_argumentos)
+{
+  declaraciones_y_sentencias;
+  [<span class="hljs-keyword">return</span> expresion;]
+}
+
+</code></pre>
+<ul>
+<li>Si se omite el tipo_retornado se asume <code>int</code>
+</li>
+<li>Si la lista de_argumentos es vacía o la función retorna vacío usar la palabra clave <code>void</code>
+</li>
+<li>Argumentos sólo por valor</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h3>Ejemplo</h3>
+<pre><code class="c hljs ">
+<span class="hljs-keyword">int</span> sumo_n (<span class="hljs-keyword">int</span> n)
+{
+  <span class="hljs-keyword">int</span> suma=<span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">for</span> (; n&gt;<span class="hljs-number">0</span>; suma += n, n--);
+
+  <span class="hljs-keyword">return</span> suma;
+}
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h3>Función main</h3>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main()
+{
+  <span class="hljs-built_in">printf</span> (“Hola Mundo”);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h3>Prototipo de una función</h3>
+
+<ul>
+<li>Las funciones deben ser declaradas antes de ser utilizadas</li>
+<li>Permiten que el compilador lleve a cabo una fuerte comprobación de tipos</li>
+<li>Valida también la cantidad de parámetros</li>
+<li>Se incluyen antes de las funciones de nuestro programa, al principio del archivo</li>
+<li>Se usa la palabra clave <code>void</code> para indicar el no retorno de valor por una función y una lista de argumentos vacía</li>
+<li>No es necesario dar nombre a las variables en la lista de argumentos</li>
+<li>Colabora con la modularización y construcción de librerías.</li>
+</ul>
+<pre><code class="c hljs ">
+tipo nombre_funcion (tipo_p1, tipo_p2, tipo_p3)
+
+</code></pre>
+</section>
+</section>
+
+<section style="top: 0px; display: none;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
+<section style="top: 219px; display: none;">
+
+<h1>Entrada/Salida</h1>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Funciones de Entrada/Salida</h2>
+
+<ul>
+<li>C no prove palabras claves para realizar E/S</li>
+<li>Librería <code>stdio.h</code> de la biblioteca estándard</li>
+<li>Existen funciones para la E/S por <em>consola</em> y por <em>archivo</em>, aunque técnicamente son similares conceptualmente son diferentes.</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Entrada / Salida estándar</h2>
+
+<ul>
+<li>Archivos estándar 
+
+<ul>
+<li>
+<code>STDIN</code>: Standard Input</li>
+<li>
+<code>STDOUT</code>: Standard Output</li>
+<li>
+<code>STDERR</code>: Standard Error</li>
+</ul>
+</li>
+<li>También se pueden redirigir
+
+<ul>
+<li>
+<code>STDIN</code>:  se puede redirigir con <code>&lt;</code>
+</li>
+<li>
+<code>STDOUT</code>: se puede redirigir con <code>&gt;</code>
+</li>
+<li>
+<code>STDERR</code>: se puede redirigir con <code>2&gt;</code>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Entrada y Salida de Caracteres</h2>
+<pre><code class="c hljs ">
+<span class="hljs-keyword">int</span> getchar(<span class="hljs-keyword">void</span>);
+
+<span class="hljs-keyword">int</span> <span class="hljs-built_in">putchar</span>(<span class="hljs-keyword">int</span> c);
+
+</code></pre>
+<ul>
+<li>
+<code>getchar()</code> devuelve un entero pero se puede asignar a un char. Esto es porque
+devuelve <code>EOF</code> cuando se produce un error o alcanza el fin de archivo</li>
+<li><p><code>EOF</code> es <code>-1</code> que no es un valor válido para un char.</p></li>
+<li><p>putchar(int) envía a la salida estándar el caracter escrito. Envía el byte menos  significativo.</p></li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Buffer intermedio</h2>
+
+<ul>
+<li>La función <code>getchar()</code> toma los datos de un buffer intermedio, temportal, que se carga
+con lo que ingresa el usuario desde teclado (<code>STDIN</code>)</li>
+<li>Lo maneja internamente el Sistema Operativo</li>
+</ul>
+
+<p><img src="./Aplicacion de el seminario_files/3-1- buffer-io.png" alt="Buffer intermedio"></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Buffer intermedio: ejemplo</h2>
+
+<p>Si un programa presenta en pantalla la siguiente pregunta:</p>
+<pre><code class="bash hljs ">
+ ¿Desea ver el informe de nuevo (presione S/N)? _
+
+</code></pre>
+<ul>
+<li>Asumiendo se presiona <code>S</code>, hasta que no se presione <code>ENTER</code> <em>no pasan los datos ingresados del buffer al programa</em>
+</li>
+<li>Al programa llegan ambos caracteres: la tecla <code>S</code> y el <code>ENTER</code>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Buffer intermedio</h2>
+
+<ul>
+<li>Este buffer puede ser molesto en entornos interactivos</li>
+<li>
+<code>getchar()</code> lee de a un carácter y si ingresa más de uno quedan esperando
+en la cola de entrada</li>
+<li>Este buffer es configurable manipulando atributos de la terminal
+
+<ul>
+<li>Más información en <a href="http://shtrom.ssji.net/skb/getc.html">http://shtrom.ssji.net/skb/getc.html</a>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Ejemplo de getchar y putchar: <code>cat</code>
+</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;  </span>
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>) 
+{
+  <span class="hljs-keyword">int</span> c;
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nIngrese un caracter "</span>); 
+  c = getchar();
+
+  <span class="hljs-keyword">while</span> (c != EOF) {
+    <span class="hljs-built_in">putchar</span>(c);
+    c=getchar();
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><small>
+</small></p><ul><small>
+<li>
+<strong>Notar que</strong>
+  <ul>
+  <li>
+<code>int c </code> se debe a que <code>EOF</code> es -1. Este valor no puede mapearse al tipo char, entonces queda en <code>NULL</code>
+</li>
+  <li>
+<code>getchar()</code> y <code>putchar()</code> trabajan caracter a caracter.
+  </li>
+</ul>
+</li>
+</small></ul><small>
+</small><p></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h3>Versión mejorada</h3>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;  </span>
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>)
+{
+  <span class="hljs-keyword">int</span> c;
+
+  <span class="hljs-keyword">while</span> ( (c=getchar()) !=EOF) {
+    <span class="hljs-built_in">putchar</span>(c);
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Descarga de ejemplos</h2>
+
+<ul>
+<li><p><a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/01-getchar.c">Uso de getchar</a></p></li>
+<li><p><a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/02-getchar-descarta-buffer.c">Descartando chars</a></p></li>
+<li><p><a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/02-getchar-unbuffered.c">Evitando el buffer con getchar</a></p></li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Entrada y Salida con formato</h2>
+<pre><code class="c hljs ">
+<span class="hljs-keyword">int</span> <span class="hljs-built_in">printf</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *cadena_de_control, ...)
+
+<span class="hljs-keyword">int</span> <span class="hljs-built_in">scanf</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *cadena_de_control, ...)
+
+</code></pre>
+<p><small class="fragment highlight-blue" data-fragment-index="0">
+En las entradas y salidas con formato, se pueden agregar caracteres de conversión.
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>printf</h2>
+<pre><code class="c hljs ">
+  <span class="hljs-keyword">int</span> <span class="hljs-built_in">printf</span>(formato, arg1, arg2, ...)
+
+</code></pre>
+<ul>
+<li>Formato es un string compuesto por dos tipos de objetos:
+
+<ul>
+<li>Caracteres que son copiados directamente en la salida</li>
+<li>Especificaciones de conversión, cada uno de los cuales causa la conversión
+e impresión de los siguientes argumentos sucesivo del printf</li>
+</ul>
+</li>
+<li><em>Debe existir el mismo número de caracteres de formato que de argumentos</em></li>
+<li>
+<strong>Retorna la cantidad de caracteres leídos</strong> y -1 si se ha producido un error.</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Un primer ejemplo</h2>
+<pre><code class="c hljs ">
+<span class="hljs-keyword">int</span> dia = <span class="hljs-number">6</span>, a = <span class="hljs-number">8</span>;
+
+<span class="hljs-keyword">float</span> var_flotante = <span class="hljs-number">2.52345</span>;
+
+<span class="hljs-keyword">char</span> mes[]=<span class="hljs-string">"abril"</span>;
+
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Estamos en la clase de C"</span>);
+
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hoy es lunes %d de %s"</span>, dia, mes);
+
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Ejemplo var_flotante = %0.2f"</span>, var_flotante);
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Caracteres de conversión de printf</h2>
+
+<p>Cada especificación de conversión comienza con un % y termina con un carácter de conversión. </p>
+
+<p>Entre estos dos caracteres hay otros modificadores que <strong>deben especificarse en un orden determinado</strong></p>
+
+<p>A continuación detallamos estos modificadores</p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h3>Modificadores de formato</h3>
+
+<ul>
+<li>Un # que convierte a formato alternativo</li>
+<li>Un 0 para llenar el padding con ceros</li>
+<li>Un signo - que especifica ajuste a izquierda;</li>
+<li>Un número que especifica un ancho mínimo del campo (si es necesario se rellena con espacios en blanco para completar este valor);</li>
+<li>Un punto que separa el ancho del campo de la precisión;</li>
+<li>Otro número, la precisión, que indica el número de dígitos después del punto decimal (si es float) o el número mínimo de dígitos para un entero, o para strings la cantidad máxima de caracteres</li>
+</ul>
+
+<p><small class="fragment" data-fragment-index="0">
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/03-printf.c">Descargar ejemplo de uso de modificadores</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Los caracteres de conversión</h2>
+
+<table>
+<thead>
+<tr>
+<th>Char</th>
+<th>Tipo</th>
+<th>Se imprime como</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d,i</code></td>
+<td><code>int</code></td>
+<td>Número decimal</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td><code>int</code></td>
+<td>Octal sin signo (sin el cero inicial</td>
+</tr>
+<tr>
+<td><code>x,X</code></td>
+<td><code>int</code></td>
+<td>Hexadecimal</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td><code>int</code></td>
+<td>Decimal sin signo</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td><code>int</code></td>
+<td>Caracter</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td><code>char *</code></td>
+<td>Cadena de caracters</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td><code>float</code></td>
+<td>Número flotante</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Ejemplo</h2>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span>&lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>)
+{
+  <span class="hljs-keyword">int</span> i;
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%8s %8s %8s\n"</span>, <span class="hljs-string">"^1"</span>, <span class="hljs-string">"^2"</span>, <span class="hljs-string">"^3"</span>);
+
+  <span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>; i&lt;<span class="hljs-number">6</span>; i++) <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%8d %8d %8d\n"</span>, i, i*i, i*i*i);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/04-printf-tabla.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>scanf</h2>
+
+<p>Lee datos de <code>STDIN</code></p>
+<pre><code class="c hljs ">
+  <span class="hljs-keyword">int</span> <span class="hljs-built_in">scanf</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *cadena_ctrl, …);
+
+  <span class="hljs-comment">/* Usada generalmente de la siguiente forma */</span>
+  <span class="hljs-built_in">scanf</span>(tipo, &amp;var)
+
+</code></pre>
+<ul>
+<li>Donde:
+
+<ul>
+<li>
+<strong>tipo:</strong> tipo de dato a almacenar</li>
+<li>
+<strong>Ampersand (&amp;):</strong> indica la dirección de memoria de la variable donde se almacenará el dato. Cuando se guardan cadenas de caracteres el &amp; se omite</li>
+<li>
+<strong>var:</strong> variable para almacenar el dato</li>
+</ul>
+</li>
+</ul>
+
+<p><small class="fragment highlight-red" data-fragment-index="0">
+Retorna el número de datos a los cuales se les ha asignado un valor con éxito
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Ejemplo</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main(){
+
+  <span class="hljs-keyword">int</span> x, y, res;
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nIngrese dos valores enteros separados por -,"</span>
+         <span class="hljs-string">"luego presione enter:"</span>);
+
+  res = <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d-%d"</span>, &amp;x, &amp;y);
+
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nSe leyeron: \n\t1\t=&gt;\t%d\n\t2\t=&gt;\t%d\n"</span>
+         <span class="hljs-string">"El resultado del scanf fue: %d\n"</span>, x, y, res);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/05-scanf.c">Descargar ejemplo 05-scanf.c</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Buenas prácticas</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main(){
+  <span class="hljs-keyword">int</span> val;
+  <span class="hljs-keyword">do</span> {
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nIngrese un número entero (-1 termina, "</span>
+           <span class="hljs-string">"letras se descartan): "</span>);
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;val) != <span class="hljs-number">1</span>) {
+      <span class="hljs-built_in">fprintf</span>(stderr, <span class="hljs-string">"Error. Intente nuevamente: "</span>);
+      getchar();
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Se leyó: %d"</span>, val);
+  } <span class="hljs-keyword">while</span>(val != -<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><small>
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/06-scanf-buen-uso.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Consideraciones de scanf</h2>
+
+<ul>
+<li>La cadena de control consta de 3 clases de caracteres:
+
+<ul>
+<li>Especificación de formato: van precedidos por % e indican el tipo de dato a leer. Tienen orden</li>
+<li>Caracteres de espacio en blanco</li>
+<li>Caracteres que no son espacios en blanco.</li>
+</ul>
+</li>
+<li>Los espacios, las tabulaciones y los saltos de línea se usan como separadores de campo. Dependiendo de la indicación del formato, el  espacio en blanco se interpreta de diferente manera.</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Consideraciones</h2>
+
+<table>
+<thead>
+<tr>
+<th>Ejemplo</th>
+<th>Descripcion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scanf("%c%c%c", &amp;a, &amp;b, &amp;c);</code></td>
+<td>Ingresando <strong>"x y"</strong> queda a con x, b con blanco y c con y</td>
+</tr>
+<tr>
+<td><code>scanf("%s", str);</code></td>
+<td>Ingresando "hola mundo" queda hola</td>
+</tr>
+</tbody>
+</table>
+
+<h3>¿Cómo leemos espacions con scanf?</h3>
+
+<p><small class="fragment" data-fragment-index="0">
+<a href="http://catedra_c.gitlab.io/teoria/images/ejemplos/03/07-scanf-con-espacios.c">Descargar ejemplo</a>
+</small></p>
+
+</section>
+</section>
+<section style="top: 330px; display: none;" hidden="" aria-hidden="true" class="future">
+
+<h1>Clase 4</h1>
+
+</section>
+<section style="top: 330px; display: none;" hidden="" aria-hidden="true" class="future">
+
+<h2>Temario</h2>
+
+<ul>
+<li>El preprocesador
+
+<ul>
+<li>Introducción</li>
+<li>Características</li>
+<li>Directivas</li>
+<li>Macros</li>
+<li>Concatenación</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section style="top: 330px; display: none;" hidden="" aria-hidden="true" class="future">
+
+<h1>El preprocesador</h1>
+
+</section>
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
+<section style="top: 44.5px; display: block;">
+
+<h2>Introducción</h2>
+
+<p><img src="./Aplicacion de el seminario_files/4-1-el-preprocesador.png" alt="El preprocesador"></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 0.5px; display: block;">
+
+<h2>Introducción</h2>
+
+<ul>
+<li>Es un elemento del lenguaje C muy utilizado, que permite dar una respuesta al principio
+de modularización y compilación separada que promueve C</li>
+<li>Las instrucciones normales no afectan al preprocesador, tiene comandos especiales</li>
+<li>Ventajas
+
+<ul>
+<li>Los programas son más fáciles de desarrollar</li>
+<li>Son más fáciles de leer</li>
+<li>Son más fáciles de modificar</li>
+<li>Y el código de C es más transportable entre diferentes arquitecturas de máquinas</li>
+</ul>
+</li>
+</ul>
+
+</section>
+</section>
+
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
+<section style="top: 69px; display: block;">
+
+<h2>Características</h2>
+
+<ul>
+<li>Se ejecuta <strong>antes</strong> que la compilación.</li>
+<li>Realiza modificaciones en el archivo fuente.
+
+<ul>
+<li>Inclusión de textos.</li>
+<li>Sustituciones.</li>
+<li>Eliminar partes del fuente.</li>
+</ul>
+</li>
+<li>Trabaja únicamente sobre los fuentes</li>
+<li><em>No tiene en cuenta ningún aspecto sintáctico ni semántico del lenguaje</em></li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 100.5px; display: block;">
+
+<h2>Funcionamiento</h2>
+
+<div style="width: 45%; float: left;">
+<img src="./Aplicacion de el seminario_files/4-2-el-preprocesador.png">
+</div>
+
+<div class="fragment" style="width: 45%; float: left;" data-fragment-index="0">
+<img src="./Aplicacion de el seminario_files/4-2-1-el-preprocesador.png">
+</div>
+
+</section>
+</section>
+
+<section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future" data-previous-indexv="0">
+<section style="top: 69.5px; display: block;">
+
+<h2>Directivas</h2>
+
+<ul>
+<li>Una directiva es una palabra que interpreta el preprocesador</li>
+<li>Comienzan con el símbolo <strong>#</strong> (numeral)</li>
+<li>Están situadas a principio de línea</li>
+<li>Si involucran más de una línea se incluye el carácter \ (barra invertida) al final de la línea,
+indicando que la línea continua abajo</li>
+<li>No se utiliza el carácter <strong>;</strong> (punto y coma) al final de la línea</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 111.5px; display: none;">
+
+<h2>Directivas</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#include</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">undef</span></span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> </span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">else</span> </span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
+
+<span class="hljs-preprocessor">#ifdef </span>
+<span class="hljs-preprocessor">#ifndef </span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">elif</span> </span>
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 55px; display: none;">
+
+<h2>#include</h2>
+
+<ul>
+<li>Incluye el contenido del archivo indicado</li>
+<li>Puede usarse de las siguientes formas:</li>
+</ul>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> "nombr"</span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;nombre&gt;</span>
+</code></pre>
+<h3>Ejemplo:</h3>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> "../parent_subdir/my_header.h"</span>
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>¿Cómo compilamos muchos archivos?</h2>
+<pre><code class="bash hljs ">
+gcc -o prog archi1.c archi2.c
+
+</code></pre>
+<h3>Las opciones</h3>
+
+<ul>
+<li>
+<strong>-c:</strong> preprocesa y compila a código objeto</li>
+<li>
+<strong>-o archivo:</strong> nombre del binario definitivo</li>
+<li>
+<strong>-Wall:</strong> muestra todos las advertencias del compilador
+
+<ul>
+<li><strong><em>Las advertencias son errores</em></strong></li>
+</ul>
+</li>
+<li>
+<strong>-E:</strong> sólo realiza <strong>preprocesamiento</strong>
+</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>#define</h2>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> nombre textoReemplazo</span>
+
+</code></pre>
+<ul>
+<li>Sustituye <strong>todas</strong> las ocurrencias de <strong><em>nombre</em></strong> por <strong><em>textoReemplazo</em></strong>
+</li>
+<li>Permite definir <strong>constantes simbólicas</strong>
+</li>
+</ul>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> MAX 100</span>
+
+</code></pre>
+<p><small class="fragment highlight-blue" data-fragment-index="0">
+En ejecución no ocupa un lugar en la memoria porque se reemplaza por una
+constante
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>#define</h2>
+
+<ul>
+<li>El alcance es desde donde se lo declara hasta el final del archivo fuente
+
+<ul>
+<li>Si el define se hace en un archivo incluido, entonces su alcance se propaga al archivo que usa el <code>#include</code>
+</li>
+</ul>
+</li>
+<li>Las sustituciones se hacen por elementos y no por strings encerrados entre comillas (")</li>
+<li>
+<strong>No</strong> hay que escribir el símbolo igual (=)</li>
+<li>En general, el nombre se escribe en mayúsculas para diferenciarlo de las variables.</li>
+</ul>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Errores habituales</h2>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> MAX =100</span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> MIN 10;</span>
+
+
+<span class="hljs-keyword">if</span> (x == MAX) <span class="hljs-comment">/* if (x == =100) */</span>
+
+<span class="hljs-keyword">if</span> (x == MIN) <span class="hljs-comment">/* if (x == 10;) */</span>
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Errores habituales</h2>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> C A+B</span>
+
+D = C * C <span class="hljs-comment">/* A+B * A+B */</span>
+
+</code></pre>
+<div class="fragment" data-fragment-index="0">
+<h3> La forma adecuada </h3>
+
+<pre><code class="c hljs ">
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> C (A+B)</span>
+
+</code>
+</pre>
+</div>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>#define</h2>
+
+<p>También permite definir <strong>macros personalizadas</strong></p>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> abs(x) ( (x) &gt; 0 ? (x) : -(x) )</span>
+
+z = <span class="hljs-built_in">abs</span>(a - <span class="hljs-number">3</span>); <span class="hljs-comment">/* z = ( (a-3) &gt; 0 ? (a-3) : -(a-3) ); */</span>
+
+</code></pre>
+<div class="fragment" data-fragment-index="0">
+<h3>¿Cuál es el error de usar...?</h3>
+
+<pre><code class="c hljs ">
+
+<span class="hljs-built_in">abs</span>(a++);
+
+</code>
+</pre>
+
+</div>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Para tener en cuenta</h2>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> swap(x,y) {int temp=x; x=y; y=temp;}</span>
+
+...
+
+<span class="hljs-keyword">if</span> (a&gt;b)
+  swap(a,b)
+<span class="hljs-keyword">else</span>
+
+...
+
+</code></pre>
+<p><small class="fragment highlight-red" data-fragment-index="0">
+<strong>¿Cuál sería un posible problema?</strong>
+</small></p>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Otro ejemplo con #define</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> DOS 2</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> Doble(x) (DOS*(x))</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> Cuadruple(x) (Doble(Doble(x)))</span>
+
+....
+
+z=Cuadruple(A);
+
+....
+
+</code></pre>
+<h3>Deslozado</h3>
+<pre><code class="c hljs ">
+z = (Doble(Doble(A)));
+z = ((DOS*(Doble(A))));
+z = ((DOS*((DOS*(A)))));
+z = ((<span class="hljs-number">2</span>*(DOS*(A))));
+z = ((<span class="hljs-number">2</span>*((<span class="hljs-number">2</span>*(A)))));
+
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>¿Cómo se comporta con recursión?</h2>
+
+<ul>
+<li>Se efectúan los reemplazos en orden de definición y cuando llega al último reemplazo
+se corta el proceso</li>
+<li>
+<strong>No</strong> continua en loop.</li>
+</ul>
+<pre><code class="c hljs ">
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> X Y</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> Y Z</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> Z X</span>
+
+....
+
+A=X;
+
+....
+
+<span class="hljs-comment">/* 
+A = Y;
+A = Z;
+A = X
+*/</span>
+</code></pre>
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Otro ejemplo recursivo</h2>
+<pre><code class="c hljs "><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> sqrt(x) ( (x) &lt; 0 ? 0 : sqrt(x) )</span>
+
+<span class="hljs-built_in">sqrt</span>(-<span class="hljs-number">1</span>);
+
+<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">4</span>);
+
+</code></pre>
+<div class="fragment highlight-red" data-fragment-index="0">
+¿Qué sucede?
+</div>
+
+</section>
+<section class="future" aria-hidden="true" style="top: 330px; display: none;">
+
+<h2>Macros predefinidas</h2>
+
+<ul>
+<li>Se definen con dos guiones bajos <strong>__</strong>
+
+<ul>
+<li>
+<code>__FILE__</code> Es una cadena de caracteres que contiene el nombre del archivo fuente</li>
+<li>
+<code>__LINE__</code> El número de línea actual</li>
+<li>
+<code>__DATE__</code> fecha de compilación</li>
+<li>
+<code>__TIME__</code> hora de la compilación</li>
+<li>
+<code>__STDC__</code> 1, si compila ANSI C</li>
+</ul>
+</li>
+</ul>
+
+</section>
+</section>
+
+  </div>
+<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background past" data-loaded="true" style="display: none;"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background present" style="display: none;" data-loaded="true"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;" data-loaded="true"><div class="slide-background present" data-loaded="true" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><div class="navigate-left"></div><div class="navigate-right enabled"></div><div class="navigate-up"></div><div class="navigate-down"></div></aside><div class="slide-number"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+
+Seminario de Lenguajes
+
+Opción C
+
+</div></div>
+
+<script src="./Aplicacion de el seminario_files/head.min.js"></script>
+<script src="./Aplicacion de el seminario_files/reveal.js"></script>
+
+<script>
+  (function() {
+  function extend( a, b ) {
+    for(var i in b) {
+      a[i] = b[i];
+    }
+  }
+  var baseOptions = {
+    transition: 'default',
+
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  };
+  var configOptions = {"controls":true,"progress":true,"history":true,"center":true}
+  var initializeOptions = {};
+  extend(initializeOptions, baseOptions);
+  extend(initializeOptions, configOptions);
+  Reveal.initialize(initializeOptions);
+})();
+
+</script><script type="text/javascript" src="./Aplicacion de el seminario_files/highlight.js"></script><script type="text/javascript" src="./Aplicacion de el seminario_files/zoom.js"></script><script type="text/javascript" src="./Aplicacion de el seminario_files/notes.js"></script>
+
+  
+
+</body></html>

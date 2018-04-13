@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="p1e5.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="47"/>
+        <CursorPos X="29" Y="59"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="8" HistoryIndex="7">
+      <Position1>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="11" Column="58"/>
+      </Position1>
+      <Position2>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="17" Column="34" TopLine="6"/>
+      </Position2>
+      <Position3>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="22" Column="34" TopLine="9"/>
+      </Position3>
+      <Position4>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="33" Column="29" TopLine="20"/>
+      </Position4>
+      <Position5>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="35" Column="15" TopLine="22"/>
+      </Position5>
+      <Position6>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="43" TopLine="30"/>
+      </Position6>
+      <Position7>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="42" Column="58" TopLine="30"/>
+      </Position7>
+      <Position8>
+        <Filename Value="p1e5.pas"/>
+        <Caret Line="52" Column="28" TopLine="39"/>
+      </Position8>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,12 @@
+maiz
+111
+
+plomo
+222
+
+plutonio
+333
+
+uranio 235
+444
+

@@ -1,0 +1,50 @@
+program p3e5;
+type
+	tNombre = string[50];
+	tArchPersonas = file of tNombre;
+
+procedure eliminar (var a:tArchPeronas; nombre:string);
+var
+
+	aux:string
+	pos:integer;
+begin
+	assign(a,'Archivo');
+	reset(a);
+	pos:=1;
+	seek(a,2);
+	read(a,aux);
+	while(aux <> nombre) do begin
+		read(a,aux)
+		pos:= pos+1;
+		end;
+	if (aux = nombre) then begin
+		aux:= IntToStr(pos);
+		seek(a,1);
+		write(a,aux);
+		end
+	close(a);
+end;
+	
+
+
+VAR
+	arch: tArchPersonas;
+	reg: tNombre;
+
+BEGIN
+	assign(arch,'archivo');
+	rewrite(arch);
+	writeln('Se añadiran nombres hasta que se ingrese el ZZZZ ');
+	reg:= '0';
+	write(arch,reg);
+	write('Ingrese el nombre: ');readln(reg);
+	while (reg <> 'ZZZZ') do begin
+		write(arch,reg);
+		write('Ingrese el nombre: ');readln(reg);
+		end;
+	write('Ingrese nombre a eliminar: ');readln(reg);
+	eliminar(arch,reg);
+	close(arch);
+END.
+

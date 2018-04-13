@@ -1,0 +1,203 @@
+program p1e7-8;
+const
+	valoralto = 'ZZZZ';
+type
+	medi = record
+		nom: string[20];
+		pre: string[8];
+		ven: string[6]
+		stk: string[20];
+		end;
+
+	medicamentos = file of medi;
+
+procedure Leer(var archivo: medicamentos; var reg: medi);
+begin
+	if(not eof(archivo)) then
+		read(archivo,reg)
+	else
+		reg.nom:= valoralto;
+	
+end;
+
+procedure LeerPalabra(var linea:string;var palabra:string[20]);
+begin
+	if (linea[i]<> '') then begin
+		while (linea [i]<>'') do
+			palabra:=palabra+linea[i];
+		end;
+end;
+
+procedure CrearArchivo(var archivo: medicamentos); 
+var
+	texto: txt;
+	aux2,aux: string;
+	i: integer;
+	reg: medi;
+begin
+	assign(archivo,'medicamentos');
+	assign(texto,'C:\texto.txt');
+	reset(texto);
+	rewrite(archivo);
+	readln(texto,aux);
+	while (not eof(texto)) do begin
+		i:=1;
+		reg.nom:= aux;
+		readln(texto,aux);
+		while (not eol(aux)) do begin
+			LeerPalabra(aux,reg.ven);
+			LeerPalabra(aux,reg.stk);
+			LeerPalabra(aux,reg.pre);
+			end;
+		write(archivo,reg);
+		readln(texto,aux);
+		end;
+	close(texto);
+	close(archivo);
+end;
+
+procedure Listar20(var archivo:medicamentos);
+var
+	reg: medi;
+begin
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	Leer(archivo,reg);
+	while(reg.nom <> valoralto) do begin
+		if (reg.stk < 20) then 
+			writeln(reg.nom);
+		Leer(archivo,reg);
+		end;
+	close(archivo);
+end;
+
+procedure isfound(var linea:string; busq: string[3]; var found:boolean);
+var i:integer;
+begin
+	for i:=1 to 3 do begin
+		if linea[i] = busq[i] then
+			found:= true;	
+end;
+
+procedure BuscarVarios(var archivo:medicamentos);
+var
+	reg:medi;
+	busq: string[3];
+	found: boolean;
+begin
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	Leer(archivo,reg);
+	found:= false;
+	write('Ingrese las 3 primeras letras del nombre del medicamento que quiere buscar: ')readln(busq);
+	while(reg.nom <> valoralto) do begin
+		isfound(reg.nom,busq,found);
+		if (found) then writeln(reg.nom);
+		Leer(archivo,reg);
+		end;
+	close(archivo);	
+end;
+
+procedure GenerarTexto(var archivo:medicamentos); 
+var
+	linea: string[20];
+	texto: txt;  //mi pregunta viene aca: esta variable puede ser local o tengo que invocarla desde el programa principal?
+begin
+	assign(texto,'C:/medicamentos.txt');
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	Leer(archivo,reg);
+	while (reg.nom <> valoralto) do begin
+		linea:= reg.nom;
+		writeln(texto,linea);
+		Leer(archivo,reg);
+		end;
+	close(texto);
+	close(texto);	
+end;
+
+procedure CrearMed(var reg:medi);
+begin
+	write('Ingrese el nombre del medicamento: ');readln(reg.nom);
+	if (reg.nom <> '') then begin 
+		write('Ingrese el precio del medicamento: ');readln(reg.pre); 
+		write('Ingrese el vencimiento del medicamento: ');readln(reg.ven); 
+		write('Ingrese el stock del medicamento: ');readln(reg.stk);
+		end;
+end;
+procedure AñadirMed(var archivo:medicamentos);
+var
+	reg: medi;	
+begin
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	seek(filesize(archivo)-1);
+	Crearmed(reg);
+	while (reg.nom <> '') do begin
+		write(archivo,reg);
+		CrearMed(reg);
+	end;
+	close(archivo);
+end;
+
+procedure Buscar(var archivo);
+var
+	elem: string;
+	reg:medi;
+begin
+	write('Ingrese el elemento a buscar: ');read;(elem);
+	Leer(archivo,reg);
+	while (reg.nom <> valoralto) do begin
+		if (reg.nom = elem) then begin
+			seek(archivo,filepos(archivo)-1)
+			reg.nom := valoralto
+			end
+		else Leer(archivo,reg);
+		end;
+end;
+
+procedure ModStock(var archivo:medicamento);	
+var
+	reg: medi;
+begin
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	Buscar(archivo);
+	write('Ingrese el nuevo stock del medicamento: ');readln(reg.stk);
+	write(archivo,reg);
+	close(archivo);	
+end;
+
+procedure ModVen(var archivo:medicamento);
+var
+	reg: medi;
+begin
+	assign(archivo,'C:/archivo');
+	reset(archivo);
+	Buscar(archivo);
+	write('Ingrese el nuevo vencimiento del medicamento: ');readln(reg.ven);
+	write(archivo,reg);
+	close(archivo);	
+end;
+
+//programa principal
+
+var
+	archivo:medicamentos;
+	opcion:integer;
+begin
+	writeln('A continuacion se creara el archivo');
+	CrearArchivo(archivo);
+	write('Elija una opcion (1 al 6): ')readln(opcion),
+	
+	case opcion of
+		1:Listar20(archivo);
+		2:Buscar(archivo);
+		3:GenerarTexto(archivo);
+		4:AñadirMed(archivo);
+		5:ModStock(archivo);
+		6:ModVen(archivo);	
+	else 
+		writeln('del 1 al 6 dije, nabo');
+	close(archivo);
+end.

@@ -1,0 +1,183 @@
+program p3e1;
+uses crt;
+const
+	valorAlto = 999;
+type
+	producto = record
+		cod : Integer;
+		nom : string[64];
+		cact: integer;
+		cmin: integer;
+		cmax: integer;
+		prec: real;
+	end;
+	
+	tipoArchivoProducto = file of producto;
+
+procedure leer(var maestro: tipoArchivoProducto; var reg: producto);
+begin
+	if (not eof(maestro)) then
+		read(maestro, reg)
+	else 
+		reg.cod:= valorAlto;
+end;
+
+procedure leerReg(var reg: producto);
+begin
+	writeln('// Nuevo Producto //');
+	write('Ingrese nombre: ');readln(reg.nom);
+	write('Ingrese codigo: ');readln(reg.cod);
+	write('Ingrese cantidad maxima: ');readln(reg.cmax);
+	write('Ingrese cantidad minima: ');readln(reg.cmin);
+	write('Ingrese cantidad actual: ');readln(reg.cact);
+	write('Ingrese precio: ');readln(reg.prec);
+	writeln();	
+end;
+
+procedure modificarReg(var reg: producto);
+begin
+	writeln('// Modificar Producto //');
+	write('Ingrese nombre: ');readln(reg.nom);
+	write('Ingrese cantidad maxima: ');readln(reg.cmax);
+	write('Ingrese cantidad minima: ');readln(reg.cmin);
+	write('Ingrese cantidad actual: ');readln(reg.cact);
+	write('Ingrese precio: ');readln(reg.prec);
+	writeln();
+end;
+
+procedure Alta(var maestro: tipoArchivoProducto);
+var
+	regAux, regNew: producto;
+begin
+     seek(maestro,0);
+	leerReg(regNew);
+	read(maestro, regAux);
+	if (regAux.cod < 0) then begin
+		seek(maestro, ((regAux.cod * -1)+1));
+		read(maestro,regAux);
+
+		seek(maestro, filepos(maestro) -1);
+		write(maestro,regNew);
+
+		seek(maestro, 0);
+		write(maestro, regAux);
+		end
+	else begin
+		seek(maestro, filesize(maestro));
+		write(maestro, regNew);
+		end;
+end;
+
+procedure Baja(var maestro: tipoArchivoProducto);
+var
+	regAux, regDel: producto;
+	i: Integer;
+begin	
+     seek(maestro,0);
+	write('Ingrese la posicion del registro a borrar: ');readln(i);
+ i:= i +1; //por el registro cabecera
+	read(maestro, regAux);		//leo el cabecera. tenga o no tenga archivos ya borrados se va a copiar
+	seek(maestro, i);			//me muevo a la posicion a borrar	
+	read(maestro, regDel);		//guardo el archivo a borrar
+	seek(maestro, i);
+	write(maestro, regAux);		//sobre escribo con el cabecera
+	seek(maestro,0);			//cambio el valor a negativo y escribo en cabecera
+	regDel.cod:= i*-1;
+	write(maestro,regDel);
+end;
+
+procedure Modif(var maestro: tipoArchivoProducto);
+var
+	regAux: producto;
+	i: integer;
+begin
+     seek(maestro,0);
+	write('Ingrese la posicion del registro a modificar: ');readln(i);
+                i:= i +1; //esta mierda es por el reg cabecera
+	seek(maestro, i);
+	read(maestro, regAux);
+	modificarReg(regAux);
+	seek(maestro, i);
+	write(maestro, regAux)
+end;
+
+procedure Listar(var maestro: tipoArchivoProducto);
+var
+	regAux: producto;
+	texto: text;
+begin
+     seek(maestro,1);
+	assign(texto, 'D:\facu\fod2017\scr\reporte_productos.txt');
+	rewrite(texto);
+	leer(maestro, regAux);
+	while (regAux.cod <> valorAlto) do begin
+		writeln(texto, regAux.nom);
+		writeln(texto, regAux.cod);
+		writeln(texto);
+		writeln(regAux.nom,' ',regAux.cod);
+		leer(maestro, regAux);
+		end;
+	close(texto);
+   write('/// productos_reporte.txt creado ///');readln();
+end;
+
+procedure crearArchivo(var maestro: tipoArchivoProducto);
+var
+	regMa: producto;
+	texto: text;
+begin
+	writeln('/// Creando archivo.. ///');
+	assign(texto,'D:\facu\fod2017\scr\productosp3e1.txt');
+	assign(maestro,'D:\facu\fod2017\scr\p3e1');
+	reset(texto);
+	rewrite(maestro);
+	while (not eof(texto)) do begin
+		readln(texto,regMa.nom);
+		readln(texto,regMa.cod,regMa.cmin,regMa.cmax,regMa.cact);
+		writeln(regMa.nom,' ',regMa.cod);
+		write(maestro, regMa);		
+	end;
+	close(texto);
+ write('/// Archivo Creado ///)');readln();
+end;
+
+procedure abrirArchivo(var maestro: tipoArchivoProducto);
+var
+	nombreFis: string;
+begin
+	write('Ingrese el nombre fisico del archivo a abrir: ');//aqui iria readln(nombreFis)
+	nombreFis:= 'D:\facu\fod2017\scr\p3e1';
+	assign(maestro,nombreFis);
+	reset(maestro);
+end;
+
+procedure mostrarOpciones(var opcion: integer);
+begin
+	writeln('// Elija una opcion entre las siguientes //');
+	writeln('1- Dar de alta un registro');
+	writeln('2- Dar de baja un registro');
+	writeln('3- Modificar un registro');
+	writeln('4- Listar todo en un archivo de texto');
+	write('opcion: ');readln(opcion);
+end;
+
+//PROGRAMA PRINCIPAL
+var
+	maestro: 	tipoArchivoProducto;
+	opcion:		integer;
+begin
+	write('Ingrese 1 si desea crear un nuevo archivo, de lo contrario presione enter: ');readln(opcion);
+	if (opcion = 1) then 
+		crearArchivo(maestro)
+	else
+		abrirArchivo(maestro);
+	mostrarOpciones(opcion);
+	case (opcion) of
+		1: Alta(maestro);
+		2: Baja(maestro);
+		3: Modif(maestro);
+		4: Listar(maestro);
+	end;
+	close(maestro);
+end.
+

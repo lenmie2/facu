@@ -1,0 +1,1 @@
+int sumaPar(int,int);

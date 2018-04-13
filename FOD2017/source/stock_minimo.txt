@@ -1,0 +1,4 @@
+codigo: 1 precio: 5.050000000000000E+001stock Actual : 20Stock Minimo : 40nombre:  maiz
+codigo: 3 precio: 5.050000000000000E+001stock Actual : 20Stock Minimo : 40nombre:  papa
+codigo: 5 precio: 5.050000000000000E+001stock Actual : 20Stock Minimo : 40nombre:  lechuga
+codigo: 7 precio: 5.050000000000000E+001stock Actual : 20Stock Minimo : 40nombre:  tuhermana

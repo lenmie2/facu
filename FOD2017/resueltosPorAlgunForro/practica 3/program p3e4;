@@ -1,0 +1,53 @@
+program p3e4;
+type
+	tNombre = string[50];
+	tArchPersonas = file of tNombre;
+
+procedure agregar (var a: tArchPersonas; nombre: string);
+var
+	i,pos:integer;
+	ok:= word;
+	aux:tNombre;
+begin
+	seek(a,1);
+	read(a,aux);
+	if (aux = '0') then begin
+		while (not eof(a)) do
+			read(a,aux);
+		write(a,nombre);
+		end;
+	else begin
+		val(aux,pos,ok);
+		if (ok <> 0) then begin
+			for i:=2 to pos do 
+				read(a,aux);
+			seek(a,filepos(a)-1);
+			write(a,nombre);
+			seek(a,1);
+			aux:= '0';
+			write(a,aux);
+			end;
+	close(a);
+end;
+
+VAR
+	arc:tArchPersonas;
+	reg:tNombre; 
+	opcion:integer;
+	ok:boolean;
+BEGIN
+	assign(arc,'Archivo de Personas');
+	rewrite(arc);
+	read(arc,reg),
+	reg:= '0';
+	ok:= true;
+	while (ok) do begin
+		write('Ingrese el nombre de la persona: ');readln(reg);
+		agregar(arc,reg);
+		write('Ingrese 1 si desea seguir agregando personas ');
+		readln(opcion);
+		if(opcion <> 1) then
+			ok:= false;
+		end;
+	close(arc);
+END.

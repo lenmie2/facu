@@ -1,0 +1,154 @@
+program p1e5-6;
+const
+	valoralto=9999;
+type
+	persona = record
+		ape: string[30];
+		nom: string[30];
+		nac: longint;
+		end;
+	file_persona = file of persona;
+
+procedure Leer(var archivo: file_persona; reg: record);
+begin
+	if (not eof(archivo)) then
+		read(archivo,reg)
+	else
+		reg.ape:= valoralto;
+	
+end;
+	
+procedure CrearReg(var reg:persona);
+begin
+	write('ingrese apellido');readln(reg.ape);
+	if (reg.ape <> '') then
+		write('ingrese nombre');readln(reg.nom);
+		write('ingrese fecha de nac aaaammdd');readln(reg.nac);
+		end;
+end;
+
+procedure AñadirPersona(var archivo:file_persona);
+var
+	reg: persona;
+begin
+	assign(archivo,'Personas');
+	reset(archivo);
+	seek(filesize(archivo)-1)
+	CrearReg(persona)
+	while(persona.ape <> '') do begin
+		write(archivo,reg);
+		CrearReg(reg);
+		end;
+end;
+
+procedure Listar1(var archivo:file_persona);
+var
+	select: longint;
+	reg: persona
+begin
+	assign(archivo,'personas');
+	reset(archivo);
+	leer(archivo,persona);
+	write('ingrese el mes elegido en numero: ');readln(select);
+	while (persona.ape <> '') do begin
+		if (((persona.nac)mod 10000)div 100)= select) or (persona.nac = 0) then begin
+			writeln(persona.ape);
+			writeln(persona.nom);
+			writeln(persona.nac);
+			writeln;
+			end;
+		leer(archivo,persona);
+		end;
+	close(archivo);
+end;
+
+procedure ModificarFecha(var archivo:file_persona);
+var
+	fecha:=longint;
+	reg:persona;
+	nom: string[20];
+	i,cant: Integer;
+begin
+	assign(archivo,'personas');
+	reset(archivo);
+	write('Ingrese la cantidad de nombres que desea buscar ');readln(cant);
+	for i:=1 to cant do begin
+		write('Ingrese el nombre que desea buscar :');readln(nom);
+		seek(archivo,0);
+		Leer(archivo,reg);
+		while (reg<>valoralto) and (reg.nom<>nom) do
+			Leer(archivo,reg);
+		write('Ingrese la fecha nueva: ');readln(fecha);
+		reg.nac:=fecha;
+		seek(archivo,filepos(archivo)-1);
+		write(archivo,reg);
+		end;
+	close(archivo);
+end;
+
+procedure Texto(var archivo:file_persona);
+var
+		Texto: text;
+		reg:persona;
+		linea:string;	
+begin
+	assign(archivo,'Archivo de personas');
+	assign(Texto,'ListadePersonas.txt');
+	reset(archivo);
+	rewrite(Texto);
+	Leer(archivo,reg);
+	while (reg.ape <> valoralto) do begin
+		writeln(Texto,reg.ape+' '+reg.nom+' '+reg.nac);
+		Leer(archivo,reg);
+		end;
+	close(archivo);
+	close(Texto);
+end;
+
+procedure Baja(var archivo: file_persona);
+var
+	aux,reg: persona;
+	busq: string[20];
+begin
+	assign(archivo,'ListadePersonas');
+	reset(archivo) //hace falta si ya abri el archivo?
+	seek(archivo,filelength-1);
+	read(archivo,aux);
+	reset(archivo);
+	write('Ingrese el nombre de la persona a eliminar: ');readln(busq);
+	Leer(archivo,reg);
+	while (reg.nom <> busq) do 
+		Leer(archivo,reg);
+	seek(archivo,filepos(archivo)-1);
+	write(archivo,aux);
+	seek(archivo,filelength-1);
+	truncate(archivo);
+end;
+
+
+
+VAR
+	archivo: file_persona;
+	reg: persona;
+	opcion:integer;
+BEGIN
+	assign(archivo,'personas');
+	rewrite(archivo);
+	CrearReg(reg);
+	while(reg <> '') do begin
+		write(archivo,reg);
+		Crearreg(reg);
+		end;
+	reset(archivo);
+	writeln('elija una opcion: ');readln(opcion);
+	case opcion of
+		1: Listar1(archivo);
+		2: ModificarFecha(archivo);
+		3: Baja(archivo);
+		end;
+	close(archivo);
+END.
+
+
+
+
