@@ -5,6 +5,7 @@ import practica2.ejercicio1.ColaGenerica;
 public class ArbolBinario<T> {
 
 	private NodoBinario<T> raiz;
+	private int T;
 
 	public ArbolBinario(T dato) {
 		this.raiz = new NodoBinario<T>(dato);
@@ -58,16 +59,16 @@ public class ArbolBinario<T> {
 		return this.getDatoRaiz() != null && this.getHijoIzquierdo().esVacio() && this.getHijoDerecho().esVacio();
 	}
 	
-	public int contarHojas(ArbolBinario<T> arbol){
+	public int contarHojas(){
 		
-		if(arbol.esVacio()) {
+		if(this.esVacio()) {
 			return 0;
 		}
-		if(arbol.esHoja()) {
+		if(this.esHoja()) {
 			return 1;
 		}
 		else {
-			return contarHojas(arbol.getHijoDerecho())+contarHojas(arbol.getHijoIzquierdo());
+			return this.getHijoDerecho().contarHojas()+this.getHijoIzquierdo().contarHojas();
 		}		
 	}
 	
@@ -103,16 +104,25 @@ public class ArbolBinario<T> {
 		}
 	
 	}
-	
+/*	
 	public ArbolBinario<T> espejo(){
 		
+		ArbolBinario<T>arbol; 
+		
 		public ArbolBinario<T> espejo2(ArbolBinario<T> arbol){
+			if (arbol.esVacio()) {			
+				return arbol;
+			}
 			
-			arbol.agregarHijoDerecho(espejo2(arbol.getHijoIzquierdo()));
-			arbol.agregarHijoIzquierdo(espejo2(arbol.getHijoDerecho()));
+			ArbolBinario<T> izquierdo = espejo2(arbol.getHijoIzquierdo());
+			ArbolBinario<T> derecho = espejo2(arbol.getHijoDerecho());
+			
+			arbol.agregarHijoDerecho(izquierdo);
+			arbol.agregarHijoIzquierdo(derecho);
+			
+			return arbol;
 			
 		}
-		
 	}
-
+*/
 }
